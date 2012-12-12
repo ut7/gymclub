@@ -27,6 +27,10 @@ describe("Ma fonction recherche", function () {
     it("retourne 0 pour l'élément à gauche", function () {
       assert.equal(0, recherche(1, [1, 3, 5]));
     });
+
+    it("retourne 2 pour l'élément à droite", function () {
+      assert.equal(2, recherche(5, [1, 3, 5]));
+    });
   });
 
   describe("sur une liste à sept éléments", function () {

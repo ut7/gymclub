@@ -1,13 +1,15 @@
 module.exports = function (item, liste) {
-  var borneMax, pivot;
+  var borneMin, borneMax, pivot;
 
+  borneMin = 0
   borneMax = liste.length - 1;
 
-  while (borneMax >= 0) {
-    pivot = (borneMax) / 2;
+  while (borneMax >= borneMin) {
+    pivot = (borneMax + borneMin) / 2;
     if (liste[pivot] === item ) { return pivot; }
 
-    borneMax = pivot - 1;
+    if (item < liste[pivot]) { borneMax = pivot - 1; }
+    if (item > liste[pivot]) { borneMin = pivot + 1; }
   }
 
   return -1;
