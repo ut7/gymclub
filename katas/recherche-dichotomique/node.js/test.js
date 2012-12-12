@@ -49,4 +49,40 @@ describe("Ma fonction recherche", function () {
       assert.equal(-1, recherche(4, liste));
     });
   });
+
+  describe("sur les cas de recette", function () {
+    it("fonctionne aussi", function () {
+      var liste, liste_taille_paire;
+
+      liste = [1, 3, 5, 7, 9];
+      assert.equal(0, recherche(1, liste));
+      assert.equal(1, recherche(3, liste));
+      assert.equal(2, recherche(5, liste));
+      assert.equal(3, recherche(7, liste));
+      assert.equal(4, recherche(9, liste));
+
+      assert.equal(-1, recherche(0, liste));
+      assert.equal(-1, recherche(2, liste));
+      assert.equal(-1, recherche(4, liste));
+      assert.equal(-1, recherche(6, liste));
+      assert.equal(-1, recherche(8, liste));
+      assert.equal(-1, recherche(10, liste));
+
+      liste_taille_paire = [1, 3, 5, 7, 9, 11];
+      assert.equal(0, recherche(1, liste_taille_paire));
+      assert.equal(1, recherche(3, liste_taille_paire));
+      assert.equal(2, recherche(5, liste_taille_paire));
+      assert.equal(3, recherche(7, liste_taille_paire));
+      assert.equal(4, recherche(9, liste_taille_paire));
+      assert.equal(5, recherche(11, liste_taille_paire));
+
+      assert.equal(-1, recherche(0, liste_taille_paire));
+      assert.equal(-1, recherche(2, liste_taille_paire));
+      assert.equal(-1, recherche(4, liste_taille_paire));
+      assert.equal(-1, recherche(6, liste_taille_paire));
+      assert.equal(-1, recherche(8, liste_taille_paire));
+      assert.equal(-1, recherche(10, liste_taille_paire));
+      assert.equal(-1, recherche(12, liste_taille_paire));
+    });
+  });
 });
