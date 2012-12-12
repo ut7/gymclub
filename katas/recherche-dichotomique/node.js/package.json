@@ -1,0 +1,11 @@
+{
+  "name": "recherche-dichotomique",
+  "version": "1.0.0",
+  "description": "Une recherche dichotomique en Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": "",
+  "author": ""
+}
