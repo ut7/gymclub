@@ -1,7 +1,10 @@
 exports.recherche = function (item, liste) {
+  var pivot;
+
   if (liste.length === 0) { return -1; }
 
-  if (liste[0] === item ) { return 0; }
+  pivot = (liste.length - 1) / 2;
+  if (liste[pivot] === item ) { return pivot; }
 
   return -1;
 };

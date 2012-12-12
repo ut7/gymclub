@@ -18,4 +18,10 @@ describe("Ma fonction recherche", function () {
       assert.equal(-1, recherche.recherche(1, [3]));
     });
   });
+
+  describe("sur une liste à trois éléments", function () {
+    it("retourne 1 pour l'élément du milieu", function () {
+      assert.equal(1, recherche.recherche(3, [1, 3, 5]));
+    });
+  });
 });
