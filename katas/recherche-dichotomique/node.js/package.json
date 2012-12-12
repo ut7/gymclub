@@ -7,5 +7,8 @@
     "test": "mocha"
   },
   "repository": "",
-  "author": ""
+  "author": "",
+  "devDependencies": {
+    "mocha": "~1.7.4"
+  }
 }
