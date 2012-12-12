@@ -6,5 +6,8 @@ exports.recherche = function (item, liste) {
   pivot = (liste.length - 1) / 2;
   if (liste[pivot] === item ) { return pivot; }
 
+  pivot = pivot - 1;
+  if (liste[pivot] === item ) { return pivot; }
+
   return -1;
 };

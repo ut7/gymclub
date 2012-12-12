@@ -23,5 +23,9 @@ describe("Ma fonction recherche", function () {
     it("retourne 1 pour l'élément du milieu", function () {
       assert.equal(1, recherche.recherche(3, [1, 3, 5]));
     });
+
+    it ("retourne 0 pour l'élément à gauche", function () {
+      assert.equal(0, recherche.recherche(1, [1, 3, 5]));
+    });
   });
 });
