@@ -28,4 +28,10 @@ describe("Ma fonction recherche", function () {
       assert.equal(0, recherche.recherche(1, [1, 3, 5]));
     });
   });
+
+  describe("sur une liste à sept éléments", function () {
+    it("retourne 1 pour l'élément au milieu de la partie gauche", function () {
+      assert.equal(1, recherche.recherche(3, [1, 3, 5, 7, 9, 11, 13]));
+    });
+  });
 });
