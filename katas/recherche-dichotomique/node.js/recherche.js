@@ -1,4 +1,4 @@
-exports.recherche = function (item, liste) {
+module.exports = function (item, liste) {
   var borneMax, pivot;
 
   borneMax = liste.length - 1;
