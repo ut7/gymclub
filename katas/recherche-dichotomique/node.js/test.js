@@ -38,4 +38,15 @@ describe("Ma fonction recherche", function () {
       assert.equal(1, recherche(3, [1, 3, 5, 7, 9, 11, 13]));
     });
   });
+
+  describe("sur une liste de longueur paire", function () {
+    it("je peux retrouver tous les éléments", function() {
+      var liste = [1, 3];
+      assert.equal(0, recherche(1, liste));
+      assert.equal(1, recherche(3, liste));
+      assert.equal(-1, recherche(0, liste));
+      assert.equal(-1, recherche(2, liste));
+      assert.equal(-1, recherche(4, liste));
+    });
+  });
 });
