@@ -1,0 +1,26 @@
+{
+  "publish": false,
+  "name": "kataharry",
+  "version": "0.0.0",
+  "description": "**Harry potter kata**",
+  "directories": {
+    "test": "test",
+    "app": "app"
+  },
+  "scripts": {
+    "test": "grunt simplemocha"
+  },
+  "author": "",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "coffee-script": "latest",
+    "grunt-contrib-watch": "latest",
+    "mocha": "latest",
+    "grunt-simple-mocha": "~0.3.1",
+    "should": "~1.2.1"
+  },
+  "dependencies": {
+    "lodash": "~1.0.0-rc.3"
+  }
+}
