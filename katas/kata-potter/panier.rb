@@ -14,4 +14,14 @@ module Panier
     end
   end
 
+  def self.regroupement(liste)
+    liste.each_with_index.each_with_object([]) do |(e, idx), arr|
+      if idx > 0 && e != liste[idx-1]
+        arr.last << e
+      else
+        arr << [e]
+      end
+    end
+  end
+
 end

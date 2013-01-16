@@ -78,13 +78,27 @@ describe Panier do
       [ [0,1,2,4]    , 8 * 4 * 0.8  ],
       [ [0,1,2,3,4]  , 8 * 5 * 0.75 ],
 
-      [ [0,0,1]  , 8 + (8 * 2 * 0.95) ],
+      # [ [0,0,1]  , 8 + (8 * 2 * 0.95) ],
 
     ].each do |args, result|
 
-
       it "#{args} -> #{result}" do
         expect( described_class.montant_total(args) ).to eq(result)
+      end
+
+    end
+
+  end
+
+  describe "regroupement" do
+      # arguments   , resultats
+    [
+      [ [0,0,1]     , [[0], [0,1]] ],
+
+    ].each do |args, result|
+
+      it "#{args} -> #{result}" do
+        expect( described_class.regroupement(args) ).to eq(result)
       end
 
     end
