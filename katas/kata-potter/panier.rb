@@ -2,7 +2,7 @@
 
 module Panier
   PRIX_UNITAIRE = 8
-  DISCOUNTS = [1, 0.95, 0.9]
+  DISCOUNTS = [1, 0.95, 0.9, 0.8]
 
   def self.montant_total(livres = [])
     return 0 if livres.empty?
