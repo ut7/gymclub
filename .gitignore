@@ -1,0 +1,4 @@
+
+# Ignore RVM and Rbenv related files
+.rvm*
+.rbenv*
