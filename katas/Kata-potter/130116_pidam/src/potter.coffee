@@ -1,5 +1,5 @@
-BOOK = 8
-
+BOOK_PRICE = 8
+BOOKS  = 5
 REDUCS = [
   0,
   0.05,
@@ -8,14 +8,14 @@ REDUCS = [
   0.25
 ]
 
-# 1 <= k <= 5
+# 0 <= k <= BOOKS
 cost = (k) ->
-  k * BOOK * (1 - REDUCS[k])
+  return 0 if k is 0
+  k * BOOK_PRICE * (1 - REDUCS[k - 1])
 
-orderer = (array) ->
-  partitions = [0, 0, 0, 0, 0]
-  for val in array
-    partitions[val]++
+orderer = (panier) ->
+  partitions = [1..BOOKS].map -> 0
+  partitions[val]++ for val in panier
   partitions
 
 totalCost = (partitions) ->
