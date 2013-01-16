@@ -69,7 +69,8 @@ describe Panier do
       # arguments   , resultats
     [
       [ []           , 0        ],
-      [ [0]          , 8        ]
+      [ [0]          , 8        ],
+      [ [0,0]        , 8 * 2    ]
 
     ].each do |args, result|
 
