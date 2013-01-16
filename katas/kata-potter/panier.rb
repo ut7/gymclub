@@ -2,12 +2,6 @@
 
 module Panier
   def self.montant_total(livres = [])
-    if livres.empty?
-      0
-    elsif livres.size == 2
-      8 * 2
-    else
-      8
-    end
+    livres.size * 8
   end
 end
