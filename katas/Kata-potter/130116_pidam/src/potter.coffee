@@ -13,28 +13,26 @@ cost = (k) ->
   return 0 if k is 0
   k * BOOK_PRICE * (1 - REDUCS[k - 1])
 
-orderer = (panier) ->
-  partitions = [1..BOOKS].map -> 0
-  partitions[val]++ for val in panier
-  partitions
-
-totalCost = (partitions) ->
-  result = []
-  empty  = false
-
-  while not empty
-    empty = true
-    k = 0
-    for val, i in partitions
-      if val and val > 0
-        empty = false
-        partitions[i]--
-        k++
-    result.push k
-
-  result.reduce (prev, current) ->
+sum = (buckets) ->
+  buckets.reduce (prev, current) ->
     prev + cost(current)
   , 0
 
-module.exports = (panier) ->
-  totalCost orderer panier
+buckets = (partitions) ->
+  bucks = []
+  loop
+    k = 0
+    for numbers, val in partitions when numbers > 0
+      k++
+      partitions[val]--
+    break if k is 0
+    bucks.push k
+  bucks
+
+orderer = (basket) ->
+  partitions = [1..BOOKS].map -> 0
+  partitions[val]++ for val in basket
+  partitions
+
+module.exports = (basket) ->
+  sum buckets orderer basket
