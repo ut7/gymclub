@@ -4,6 +4,11 @@ module Panier
   PRIX_UNITAIRE = 8
 
   def self.montant_total(livres = [])
-    livres.size * PRIX_UNITAIRE
+    if livres.uniq.size == 1
+      livres.size * PRIX_UNITAIRE
+    else
+      PRIX_UNITAIRE * livres.size * 0.95
+    end
   end
+
 end
