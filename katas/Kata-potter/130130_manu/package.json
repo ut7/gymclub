@@ -1,0 +1,20 @@
+{
+  "name": "kata-potter",
+  "version": "0.0.0",
+  "description": "Kata Potter",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --colors --compilers coffee:coffee-script"
+  },
+  "repository": "",
+  "author": "Emmanuel Gaillot",
+  "license": "?",
+  "devDependencies": {
+    "mocha": "~1.8.1",
+    "expect.js": "~0.2.0"
+  },
+  "dependencies": {
+    "coffee-script": "~1.4.0",
+    "underscore": "~1.4.4"
+  }
+}
