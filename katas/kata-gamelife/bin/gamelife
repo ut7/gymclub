@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+var transform = require('../src/gamelife');
+
+var state = [
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 1, 1, 1, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]
+        ];
+
+setInterval(function() {
+        state = transform(state);
+        process.stdout.write('\033[2J');
+        console.log(state);
+}, 1000);
