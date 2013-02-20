@@ -1,0 +1,16 @@
+{
+  "name": "20130213_pognon",
+  "version": "0.0.0",
+  "description": "ERROR: No README.md file found!",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --colors -w"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD",
+  "devDependencies": {
+    "mocha": "~1.8.1",
+    "expect.js": "~0.2.0"
+  }
+}
