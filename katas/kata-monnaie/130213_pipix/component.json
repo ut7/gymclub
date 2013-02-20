@@ -1,0 +1,8 @@
+{
+  "name": "130213_pipix",
+  "version": "0.0.0",
+  "dependencies": {
+    "d3": "~3.0.6",
+    "eventEmitter": "~4.0.5"
+  }
+}
