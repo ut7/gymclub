@@ -1,0 +1,52 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
+
+require_relative "../lib/game_of_life"
+
+DEFAULTS = {
+  generations: 1_000,
+  delay: 0.2
+}
+if ARGV == ["help"]
+  puts <<EOD
+Usage: game_of_life generations delay
+
+Defaults are:
+ * generations : #{DEFAULTS[:generations]}
+ * delay: #{DEFAULTS[:delay]}
+EOD
+
+  exit 0
+end
+
+generations = Integer(ARGV.fetch(0, DEFAULTS[:generations]))
+delay = Float(ARGV.fetch(1, DEFAULTS[:delay]))
+
+puts "Will display Clock oscillator for #{generations} generations with a #{delay}s delay"
+sleep 5
+
+
+grid = GameOfLife::FancyBlockGridCreator.new.create do
+  ———————————————————————————
+  ¦ · · · · · · X X · · · · ¦
+  ¦ · · · · · · X X · · · · ¦
+  ¦ · · · · · · · · · · · · ¦
+  ¦ · · · · X X X X · · · · ¦
+  ¦ X X · X · · X · X · · · ¦
+  ¦ X X · X · X · · X · · · ¦
+  ¦ · · · X · X · · X · X X ¦
+  ¦ · · · X · · · · X · X X ¦
+  ¦ · · · · X X X X · · · · ¦
+  ¦ · · · · · · · · · · · · ¦
+  ¦ · · · · X X · · · · · · ¦
+  ¦ · · · · X X · · · · · · ¦
+  ———————————————————————————
+end
+
+
+(1..generations).each do |generation|
+  system('clear')
+  puts grid
+  sleep delay
+  grid = grid.child
+end
