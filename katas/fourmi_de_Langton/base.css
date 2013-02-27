@@ -1,0 +1,16 @@
+body {
+    font-size: 8px;
+	background: grey;
+}
+table {
+	border-collapse: collapse;
+}
+td {
+    text-align: center;
+    border: 1px solid red;
+    width: 15px;
+    height: 15px;
+	background: white;
+}
+.ant:before { content: '☺'; color: grey }
+.on { background: black }
