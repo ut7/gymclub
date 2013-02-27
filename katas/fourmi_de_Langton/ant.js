@@ -16,30 +16,30 @@ var ant = {x: num / 2, y: num / 2, dx: 0, dy: -1};
 function findCell(x, y) {
     var pos = num * y + x
     if (!cache[pos]) {
-      cache[pos] = $("td:eq("+pos+")") 
+      cache[pos] = $("tbody td:eq("+pos+")") 
     }
     return cache[pos];
 }
 var position;
-
+var black = 'background: black;'; 
 function moveAnt() {
-    position = findCell(ant.x, ant.y);
+    position = findCell(ant.x, ant.y)
 
     var dy = ant.dy;
-    if (position.hasClass('on')) {
+    position.removeAttr('class');
+    if (position.attr('style')) {
         ant.dy = -ant.dx;
         ant.dx = dy;
+        position.removeAttr('style');
     } else {
         ant.dy = ant.dx;
         ant.dx = -dy;
+        position.attr('style',black);
     }
-
-    position.toggleClass('on')
-    position.removeClass('ant');
     ant.x += ant.dx;
     ant.y += ant.dy;
     position = findCell(ant.x, ant.y);
     position.addClass('ant');
 }
 
-setInterval(moveAnt, 1);
+setInterval(moveAnt, 0);
