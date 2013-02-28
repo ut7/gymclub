@@ -1,5 +1,5 @@
 body {
-    font-size: 8px;
+  font-size: 3px;
 	background: grey;
 }
 table {
@@ -8,8 +8,8 @@ table {
 td {
     text-align: center;
     border: 1px solid red;
-    width: 15px;
-    height: 15px;
+    width: 5px;
+    height: 5px;
 	background: white;
 }
 .ant:before { content: '☺'; color: grey }
