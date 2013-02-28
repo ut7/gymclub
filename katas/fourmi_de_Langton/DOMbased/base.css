@@ -1,0 +1,15 @@
+body {
+  background: grey;
+}
+table {
+  border-collapse: collapse;
+}
+td {
+  text-align: center;
+  border: 1px solid #111;
+  width: 2px;
+  height: 2px;
+  background: white;
+}
+.ant { color: grey }
+.on { background: black }
