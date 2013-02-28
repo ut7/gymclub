@@ -2,11 +2,11 @@ var num = 100;
 var line = '';
 var grid = $('tbody');
 for (var i = 0; i < num; i++) { line += '<td></td>'; }
-var els = ''
+var cases = '';
 for (var i = 0; i < num; i++) {
-    els += '<tr>' + line + '</tr>';
+    cases += '<tr>' + line + '</tr>';
 }
-grid.html(els)
+grid.html(cases);
 /*
    dx is the delta x : first
    dy is the delta y
@@ -14,14 +14,13 @@ grid.html(els)
 var cache ={};
 var ant = {x: num / 2, y: num / 2, dx: 0, dy: -1};
 function findCell(x, y) {
-    var pos = num * y + x
+    var pos = num * y + x;
     if (!cache[pos]) {
-      cache[pos] = $("tbody td:eq("+pos+")") 
+      cache[pos] = $("tbody td:eq("+pos+")"); 
     }
     return cache[pos];
 }
-var position;
-position = findCell(ant.x, ant.y) 
+var position = findCell(ant.x, ant.y); 
 var black = 'background: black;'; 
 function moveAnt() {
     var dy = ant.dy;
