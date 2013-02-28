@@ -21,10 +21,9 @@ function findCell(x, y) {
     return cache[pos];
 }
 var position;
+position = findCell(ant.x, ant.y) 
 var black = 'background: black;'; 
 function moveAnt() {
-    position = findCell(ant.x, ant.y)
-
     var dy = ant.dy;
     position.removeAttr('class');
     if (position.attr('style')) {
