@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Game of life</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="base.css">
+    </head>
+    <body>
+        <table>
+            <tbody></tbody>
+        </table>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="src/gamelife.js"></script>
+		<script>
+			var state = [
+			[0, 0, 0, 0, 0],
+			[0, 0, 0, 0, 0],
+			[0, 1, 1, 1, 0],
+			[0, 0, 0, 0, 0],
+			[0, 0, 0, 0, 0]
+			];
+
+			var element = $('tbody');
+			initGridHTML(element, state);
+			setInterval(function() {
+				state = transformHTML(element, state);
+			}, 1000);
+		</script>
+    </body>
+</html>
