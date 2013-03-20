@@ -72,6 +72,7 @@ main(int                argc,
   float                 ymap_max = +1;
 
   if (argc < 3) {
+    printf("%s xsize ysize [xmapmin] [xmapmax] [ymapmin] [ymapmax]\n", argv[0]);
     return (1);
   }
 
