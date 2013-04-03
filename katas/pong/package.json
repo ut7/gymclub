@@ -1,0 +1,17 @@
+{
+  "name": "pong",
+  "version": "0.0.0",
+  "description": "README.md",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "coffee-script": "~1.6.2",
+    "expect.js": "~0.2.0"
+  },
+  "scripts": {
+    "test": "mocha --colors --compilers coffee:coffee-script"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD"
+}
