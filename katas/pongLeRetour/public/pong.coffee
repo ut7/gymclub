@@ -60,9 +60,23 @@ class BallMediator extends Mediator
     @context.fillRect @ball.position.x, @ball.position.y, @ball.size, @ball.size
 
   notify: (note)->
+  # Implement here ...
     switch note.name
       when 'REVERSE'
-        console.log('reverse')
+        ball = note.body
+        SoundManager.play('fail')
+
+class SoundManager
+  instance = null
+  @sounds = []
+  constructor: ->
+    @sounds = {}
+  @register: (name, path)->
+    @sounds[name] = new Audio path 
+  @play:(name)->
+    @sounds[name].play()
+  @getInstance = ->
+    instance ?= new SoundManager()
 
 class ScoreMediator extends Notifier
   constructor: (@canvas)->
@@ -139,5 +153,6 @@ canvas = document.getElementsByTagName('canvas')[0]
 clear= ->
   canvas.getContext('2d').clearRect 0, 0, canvas.width, canvas.height
 
+SoundManager.register('fail', 'sounds/fail.wav')
 app = ApplicationFacade.getInstance()
 app.main()
