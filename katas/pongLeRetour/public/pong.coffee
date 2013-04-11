@@ -1,8 +1,29 @@
 
-canvas = document.getElementsByTagName('canvas')[0]
+class Notification
+  constructor: (@name, @body, @type) ->
+  getName: -> @name
+  getBody: -> @body
+  getType: -> @type
+  toString: ->
+    "Notification Name: #{@name}
+    \nBody: #{@body or null}
+    \nType: #{@type or null}
+    "
+class Notifier
+  facade : null
+  constructor: -> 
+    @facade = ApplicationFacade.getInstance()
+  sendNotification: (name, body, type) ->
+    @facade.sendNotification name, body, type
 
-class Ball
+class Mediator extends Notifier
+  constructor: ->
+    super()
+  notify: (note)->
+
+class Ball extends Notifier
   constructor: (@limits)->
+    super()
     @position =
       x: @limits.x / 2
       y: @limits.y / 2
@@ -14,6 +35,7 @@ class Ball
   move: ->
     if @position.y + @size >= @limits.y or @position.y <= 0
       @velocity.y *= -1
+      @sendNotification 'REVERSE', self
     if @position.x + @size >= @limits.x or @position.x <= 0
       @velocity.x *= -1
     @position.x += @velocity.x
@@ -27,52 +49,95 @@ class Ball
     @velocity.x *= -1 if @velocity.x / b.velocity.x < 0
     @velocity.y *= -1 if @velocity.y / b.velocity.y < 0
 
-clear = ->
-  canvas.getContext('2d').clearRect 0, 0, canvas.width, canvas.height
 
-class BallView
+class BallMediator extends Mediator
   constructor: (@ball, canvas)->
+    super()
     @context = canvas.getContext '2d'
 
   draw: ->
+    @context.fillStyle = "#00A308"
     @context.fillRect @ball.position.x, @ball.position.y, @ball.size, @ball.size
 
-ball = new Ball 
-  x: canvas.width
-  y: canvas.height
-ball1 = new Ball 
-  x: canvas.width
-  y: canvas.height
-ball1.position.x = 1
-ball1.position.y = 1
-geishaBall = new Ball 
-  x: canvas.width
-  y: canvas.height
-geishaBall.position.x = 10
-geishaBall.position.y = 10
+  notify: (note)->
+    switch note.name
+      when 'REVERSE'
+        console.log('reverse')
 
-list = for i in [1..50]
-         ball = new Ball 
-           x: canvas.width
-           y: canvas.height
-         ball.position.x = i * 10
-         ball.position.y = i * 10
-         ball.velocity.x = (i % 2) * -1 || 1
-         if i == 2
-           ball.velocity.y = (i % 2) * -1 || 1
-         new BallView ball, canvas
+class ScoreMediator extends Notifier
+  constructor: (@canvas)->
+    super()
+    @context = canvas.getContext '2d'
 
-balls = v.ball for v in list
+  draw: (p1,p2)->
+    @context.font = "italic 20pt Calibri"
+    @context.fillText "Score : "+p1+"/"+p2, 0, 20
 
-setInterval ->
-  for v in list
 
-    for b1 in balls
-      for b2 in balls
-        b1.bounceOn b2 if b1.collides b2
+#
+# Init
+#
 
-    v.ball.move()
-  clear()
-  for v in list
-    v.draw()
-, 5
+class ApplicationMediator extends Notifier
+  constructor: (canvas)->
+    super()
+    @context = canvas.getContext '2d'
+  clear: ->
+    canvas.getContext('2d').clearRect 0, 0, canvas.width, canvas.height
+
+class ApplicationFacade
+  instance = null
+  views : null
+  score: null
+  constructor: ->
+    @views = []
+    @score = 
+      p1: 0
+      p2: 0
+  main: ->
+    for i in [1..4]
+      ball = new Ball 
+        x: canvas.width
+        y: canvas.height
+      ball.position.x = i * 10
+      ball.position.y = i * 10
+      ball.velocity.x = (i % 2) * -1 || 1
+      if i == 2
+        ball.velocity.y = (i % 2) * -1 || 1
+      @registerObservers new BallMediator ball, canvas
+    console.log @views
+    balls = v.ball for v in @views
+    scoreView = new ScoreMediator canvas
+    setInterval ->
+      app = ApplicationFacade.getInstance()
+      for v in app.views
+
+        for b1 in balls
+          for b2 in balls
+            b1.bounceOn b2 if b1.collides b2
+
+        v.ball.move()
+      clear()
+      for v in app.views
+        v.draw()
+      scoreView.draw(app.score.p1,app.score.p2)
+    , 5
+  sendNotification: (name, body, type)->  
+    @notifyObservers new Notification name, body, type
+  notifyObservers: (note)->
+   for v in @views
+     v.notify note 
+  
+  registerObservers: (observer)->
+    @views.push observer
+    observer
+  @getInstance = ->
+    instance ?= new ApplicationFacade()
+
+canvas = document.getElementsByTagName('canvas')[0]
+
+clear= ->
+  canvas.getContext('2d').clearRect 0, 0, canvas.width, canvas.height
+
+app = ApplicationFacade.getInstance()
+app.main()
