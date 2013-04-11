@@ -67,16 +67,11 @@ class BallMediator extends Mediator
         SoundManager.play('fail')
 
 class SoundManager
-  instance = null
   @sounds = []
-  constructor: ->
-    @sounds = {}
   @register: (name, path)->
     @sounds[name] = new Audio path 
   @play:(name)->
     @sounds[name].play()
-  @getInstance = ->
-    instance ?= new SoundManager()
 
 class ScoreMediator extends Notifier
   constructor: (@canvas)->

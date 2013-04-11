@@ -140,15 +140,10 @@ BallMediator = (function(_super) {
 })(Mediator);
 
 SoundManager = (function() {
-  var instance;
 
-  instance = null;
+  function SoundManager() {}
 
   SoundManager.sounds = [];
-
-  function SoundManager() {
-    this.sounds = {};
-  }
 
   SoundManager.register = function(name, path) {
     return this.sounds[name] = new Audio(path);
@@ -156,10 +151,6 @@ SoundManager = (function() {
 
   SoundManager.play = function(name) {
     return this.sounds[name].play();
-  };
-
-  SoundManager.getInstance = function() {
-    return instance != null ? instance : instance = new SoundManager();
   };
 
   return SoundManager;
