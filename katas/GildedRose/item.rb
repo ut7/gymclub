@@ -1,6 +1,6 @@
 class Item
 
-  attr_accessor :name, :sell_in, :quality
+  attr_accessor :name, :sell_in, :quality, :update_block
 
   def initialize(name, sell_in, quality, &update_block)
     @name = name

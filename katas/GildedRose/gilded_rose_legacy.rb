@@ -11,7 +11,6 @@ class GildedRoseLegacy
     @items << Item.new("Elixir of the Mongoose", 5, 7)
     @items << Item.new("Sulfuras, Hand of Ragnaros", 0, 80)
     @items << Item.new("Backstage passes to a TAFKAL80ETC concert", 15, 20)
-    @items << Item.new("Conjured Mana Cake", 3, 6)
   end
 
   def update_quality
