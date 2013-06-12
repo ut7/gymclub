@@ -8,7 +8,6 @@ require './gilded_rose_legacy.rb'
 require "rspec"
 
 
-
 describe GildedRose do
 
   let :legacy do
