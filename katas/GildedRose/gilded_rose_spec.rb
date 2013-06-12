@@ -1,5 +1,7 @@
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do
+  add_filter ".bundle"
+end
 
 require './gilded_rose.rb'
 require './gilded_rose_legacy.rb'
