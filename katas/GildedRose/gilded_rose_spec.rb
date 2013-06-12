@@ -1,15 +1,17 @@
 require './gilded_rose.rb'
+require './gilded_rose_legacy.rb'
 require "rspec"
 
 describe GildedRose do
 
-  it "should do something" do
+  let :legacy do
+    GildedRoseLegacy.new
+  end
+
+  it "behaves like GildedRoseLegacy" do
     subject.update_quality
-  end
+    legacy.update_quality
 
-  # Once the sell by date has passed, Quality degrades twice as fast
-  it "degrade quality twice as fast" do
-    subject.items.select {|i| i.name == "" }
+    subject.items.should == legacy.instance_variable_get(:@items)
   end
-
 end
