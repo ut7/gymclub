@@ -2,7 +2,7 @@ require './item.rb'
 
 class GildedRose
 
-  @items = []
+  attr_accessor :items
 
   def initialize
     @items = []
