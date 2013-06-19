@@ -1,0 +1,14 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    redis (3.0.4)
+    rfuse (1.0.3)
+    rfusefs (1.0.0)
+      rfuse (~> 1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  redis
+  rfusefs
