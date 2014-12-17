@@ -14,19 +14,27 @@ function applyAction(target, action) {
   fn.apply(target, args);
 }
 
-var referenceLength = 0;
 
 describe('The stack', function(){
+  var referenceLength;
+  var myStack;
   check.it('has a consistent length',
     [actions],
-    function(action){
-      applyAction(stack, action);
+    function(actionSeq){
+      console.log('------ \n');
+      referenceLength = 0;
+      myStack = stack();
 
-      if (action === "get" && referenceLength > 0)
-        referenceLength--;
-      if ((action instanceof Array) && action[0] === "add")
-        referenceLength++;
+      console.log(actionSeq);
+      actionSeq.forEach(function(action){
+        applyAction(myStack, action);
 
-      assert(referenceLength === stack.length());
+        if (action === "get" && referenceLength > 0)
+          referenceLength--;
+        if ((action instanceof Array) && action[0] === "add")
+          referenceLength++;
+
+        assert(referenceLength === myStack.length());
+      });
     });
 });
