@@ -3,7 +3,7 @@ require('mocha-testcheck').install();
 var assert = require('assert'),
     tc     = require('testcheck/dist/testcheck'),
     stack  = require('./chpillade'),
-    actions= require('./generators');
+    actionSequence = require('./generators').actionSequence;
 
 function applyAction(target, action) {
   if (!(action instanceof Array)) action = [action];
@@ -19,7 +19,7 @@ describe('The stack', function(){
   var referenceLength;
   var myStack;
   check.it('has a consistent length',
-    [actions],
+    [actionSequence],
     function(actionSeq){
       console.log('------ \n');
       referenceLength = 0;

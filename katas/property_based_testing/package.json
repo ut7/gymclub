@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha test.js",
-    "test-auto": "while inotifywait -e modify *.js; do ./node_modules/.bin/mocha test.js ; done"
+    "test-chpillade": "while inotifywait -e modify chpillade.js test.js generators.js; do ./node_modules/.bin/mocha test_chpillade.js ; done",
+    "test-strings": "while inotifywait -e modify 2_strings.js test_strings.js generators.js; do ./node_modules/.bin/mocha test_strings.js ; done"
   },
   "keywords": [
     "test",
