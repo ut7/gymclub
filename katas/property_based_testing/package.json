@@ -1,0 +1,22 @@
+{
+  "name": "property_based_kata",
+  "version": "0.0.0",
+  "description": "An introduction to property-based testing in javascript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js",
+    "test-auto": "while inotifywait -e modify *.js; do ./node_modules/.bin/mocha test.js ; done"
+  },
+  "keywords": [
+    "test",
+    "quick-check"
+  ],
+  "author": "chpill",
+  "license": "MIT",
+  "dependencies": {
+    "mocha": "^2.0.1",
+    "mocha-testcheck": "^0.1.2",
+    "testcheck": "~0.1.3"
+  },
+  "devDependencies": {}
+}
