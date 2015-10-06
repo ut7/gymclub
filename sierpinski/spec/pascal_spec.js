@@ -20,4 +20,13 @@ describe("Triangle de Pascal", function() {
   it('doit renvoyer comme cinquieme ligne 1,4,6,4,1', function() {
     expect(Pascal.triangle(5)).toEqual([[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]);
   });
+  
+  
+  it('doit renvoyer 500 lignes et la 500e ligne doit être composée de 500 éléments', function() {
+    expect(Pascal.triangle(500).length).toEqual(500);
+    expect(Pascal.triangle(500)[499].length).toEqual(500);
+  });
+  
+  
+  
 })
