@@ -1,8 +1,10 @@
 var pascal = function(ligne) {
   var pascal=[]
-  pascal[0] = [1]
-  if (ligne == 1) {
-    pascal[1] = [1,1]
+  if (ligne >= 1) {
+    pascal.push([1])
+  }
+  if (ligne >= 2) {
+    pascal.push([1,1])
   }
   return pascal
 }
