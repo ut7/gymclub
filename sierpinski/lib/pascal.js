@@ -1,10 +1,7 @@
 var construitLigne = function(ligne_precedente) {
   var ligne = [1];
-  index = 0;
   
-  ligne.push(ligne_precedente[index] + ligne_precedente[index+1]);
-  if (index < ligne_precedente.length-2) {
-    index = index+1;
+  for (index=0; index < ligne_precedente.length-1; index++) {
     ligne.push(ligne_precedente[index] + ligne_precedente[index+1]);
   }
   
@@ -23,18 +20,25 @@ var triangle = function(nb_lignes_demandees) {
     pascal.push(ligne);
   }
   
-  if (nb_lignes_demandees >= 3) {
+  for (i=3; i<= nb_lignes_demandees; i++) {
     var ligne_precedente = pascal[pascal.length - 1];
     var ligne = construitLigne(ligne_precedente)
     pascal.push(ligne);
   }
-  
+/*
   if (nb_lignes_demandees >= 4) {
     var ligne_precedente = pascal[pascal.length - 1];
-    var ligne = construitLigne(ligne_precedente);
+    var ligne = construitLigne(ligne_precedente)
     pascal.push(ligne);
   }
 
+  if (nb_lignes_demandees >= 5) {
+    var ligne_precedente = pascal[pascal.length - 1];
+    var ligne = construitLigne(ligne_precedente)
+    pascal.push(ligne);
+  }
+*/
+  
   return pascal
 } 
 
