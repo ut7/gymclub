@@ -13,5 +13,9 @@ describe("Triangle de Pascal", function() {
     expect(Pascal.triangle(3)).toEqual([[1],[1,1],[1,2,1]]);
   });
   
+  it('doit renvoyer comme quatrieme ligne 1,3,3,1', function() {
+    expect(Pascal.triangle(4)).toEqual([[1],[1,1],[1,2,1],[1,3,3,1]]);
+  });
+  
   
 })
