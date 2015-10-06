@@ -25,19 +25,6 @@ var triangle = function(nb_lignes_demandees) {
     var ligne = construitLigne(ligne_precedente)
     pascal.push(ligne);
   }
-/*
-  if (nb_lignes_demandees >= 4) {
-    var ligne_precedente = pascal[pascal.length - 1];
-    var ligne = construitLigne(ligne_precedente)
-    pascal.push(ligne);
-  }
-
-  if (nb_lignes_demandees >= 5) {
-    var ligne_precedente = pascal[pascal.length - 1];
-    var ligne = construitLigne(ligne_precedente)
-    pascal.push(ligne);
-  }
-*/
   
   return pascal
 } 
