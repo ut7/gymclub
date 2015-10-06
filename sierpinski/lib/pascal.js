@@ -1,11 +1,13 @@
 var Pascal = {
-  triangle: function(ligne) {
+  triangle: function(nb_lignes_demandees) {
     var pascal=[]
-    if (ligne >= 1) {
-      pascal.push([1])
+    if (nb_lignes_demandees >= 1) {
+      var ligne = [1];
+      pascal.push(ligne);
     }
-    if (ligne >= 2) {
-      pascal.push([1,1])
+    if (nb_lignes_demandees >= 2) {
+      var ligne = [1,1];
+      pascal.push(ligne);
     }
     return pascal
   }
