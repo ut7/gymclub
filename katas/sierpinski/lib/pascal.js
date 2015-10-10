@@ -1,7 +1,6 @@
 var construitLigne = function(previous_line) {
   var line = [1];
   for (i=0; i < previous_line.length - 1; i++) {
-    console.log(i);
     line.push(previous_line[i] + previous_line[i+1]);
   };
   line.push(1);  
