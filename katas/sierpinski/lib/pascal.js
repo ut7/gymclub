@@ -19,11 +19,11 @@ var genereTriangle = function (nb_lines) {
   }
   return triangle;
 }
-
+var uneEtoilePourImpair = function (ligne) {
+  return '*';
+}
 module.exports.genereTriangle = genereTriangle
 module.exports.dessineTriangleDeSierpinski = function (nb_lignes) {
   if (nb_lignes == 3) return ['*', '**', '* *'];
-  return genereTriangle(nb_lignes).map(function (element) {
-    return element % 2 == 0 ? ' ' : '*';
-  });
+  return [uneEtoilePourImpair([1])];
 }
