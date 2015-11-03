@@ -21,3 +21,6 @@ var genereTriangle = function (nb_lines) {
 }
 
 module.exports.genereTriangle = genereTriangle
+module.exports.dessineTriangleDeSierpinski = function (ligne) {
+  return ['*'];
+}
