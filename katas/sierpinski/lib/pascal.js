@@ -23,5 +23,7 @@ var genereTriangle = function (nb_lines) {
 module.exports.genereTriangle = genereTriangle
 module.exports.dessineTriangleDeSierpinski = function (nb_lignes) {
   if (nb_lignes == 3) return ['*', '**', '* *'];
-  return ['*'];
+  return genereTriangle(nb_lignes).map(function (element) {
+    return element % 2 == 0 ? ' ' : '*';
+  });
 }
