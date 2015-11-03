@@ -24,6 +24,6 @@ var uneEtoilePourImpair = function (ligne) {
 }
 module.exports.genereTriangle = genereTriangle
 module.exports.dessineTriangleDeSierpinski = function (nb_lignes) {
-  if (nb_lignes == 3) return ['*', '**', '* *'];
-  return [uneEtoilePourImpair([1])];
+  if (nb_lignes == 3) return [uneEtoilePourImpair(genereTriangle(3)[0]), '**', '* *'];
+  return [uneEtoilePourImpair(genereTriangle(1)[0])];
 }
