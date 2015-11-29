@@ -22,11 +22,7 @@ var genereTriangleDePascal = function (nb_lines) {
 var uneEtoilePourImpair = function (ligne) {
   var result = '';
   for (var i=0; i< ligne.length; i++) {
-    if (ligne[i] % 2 == 0) {
-      result = result + ' ';
-    } else {
-      result = result + '*';
-    }
+    result = (ligne[i] % 2 == 0) ? result + ' ' : result + '*';
   }
   return result;
 }
