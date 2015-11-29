@@ -20,10 +20,22 @@ var genereTriangle = function (nb_lines) {
   return triangle;
 }
 var uneEtoilePourImpair = function (ligne) {
-  return '*';
+  var result = '';
+  for (var i=0; i< ligne.length; i++) {
+    if (ligne[i] % 2 == 0) {
+      result = result + ' ';
+    } else {
+      result = result + '*';
+    }
+  }
+  return result;
 }
 module.exports.genereTriangle = genereTriangle
 module.exports.dessineTriangleDeSierpinski = function (nb_lignes) {
-  if (nb_lignes == 3) return [uneEtoilePourImpair(genereTriangle(3)[0]), '**', '* *'];
-  return [uneEtoilePourImpair(genereTriangle(1)[0])];
+  var result = [];
+  var triangle = genereTriangle(nb_lignes);
+  for (var i=0; i< nb_lignes; i++) {
+    result.push(uneEtoilePourImpair(triangle[i]));
+  }
+  return result;
 }

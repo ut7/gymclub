@@ -22,4 +22,8 @@ describe('dessineTriangleDeSierpinski', function () {
   it("affiche * * pour la 3e ligne du triangle", function () {
     expect(Pascal.dessineTriangleDeSierpinski(3)[2]).toEqual('* *'); 
   });
+
+  it("affiche **** pour la 4e ligne du triangle", function () {
+    expect(Pascal.dessineTriangleDeSierpinski(4)[3]).toEqual('****'); 
+  });
 });
