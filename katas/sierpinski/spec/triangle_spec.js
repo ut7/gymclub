@@ -15,15 +15,23 @@ describe('genereTriangleDePascal', function () {
 });
 
 describe('dessineTriangleDeSierpinski', function () {
-  it("affiche * pour un triangle d'une ligne", function () {
-    expect(Triangle.dessineTriangleDeSierpinski(1)).toEqual(['*']); 
+  it("affiche * pour un triangle non centré d'une ligne", function () {
+    expect(Triangle.dessineTriangleDeSierpinski(1, centre=false)).toEqual(['*']); 
   });
 
-  it("affiche * * pour la 3e ligne du triangle", function () {
-    expect(Triangle.dessineTriangleDeSierpinski(3)[2]).toEqual('* *'); 
+  it("affiche * * pour la 3e ligne du triangle non centré", function () {
+    expect(Triangle.dessineTriangleDeSierpinski(3, centre=false)[2]).toEqual('* *'); 
   });
 
-  it("affiche **** pour la 4e ligne du triangle", function () {
-    expect(Triangle.dessineTriangleDeSierpinski(4)[3]).toEqual('****'); 
+  it("affiche **** pour la 4e ligne du triangle non centré", function () {
+    expect(Triangle.dessineTriangleDeSierpinski(4, centre=false)[3]).toEqual('****'); 
+  });
+
+  it("affiche 5 espaces avant * pour la 1ere ligne d'un triangle centré de 6 lignes", function () {
+    expect(Triangle.dessineTriangleDeSierpinski(6, centre=true)[0]).toEqual('     *'); 
+  });
+
+  it("affiche 3 espaces avant *. .* pour la 3ere ligne d'un triangle centré de 6 lignes", function () {
+    expect(Triangle.dessineTriangleDeSierpinski(6, centre=true)[2]).toEqual('   *. .*'); 
   });
 });
