@@ -26,4 +26,16 @@ describe('dessineTriangleDeSierpinski', function () {
   it("affiche **** pour la 4e ligne du triangle", function () {
     expect(Triangle.dessineTriangleDeSierpinski(4)[3]).toEqual('****'); 
   });
+
+  it("affiche '*.*.*.*' pour la 4ere ligne d'un triangle centré de 4 lignes", function () {
+    expect(Triangle.dessineTriangleDeSierpinski(4, true)[3]).toEqual('*.*.*.*');
+  });
+
+  it("affiche '   *' pour la 1ere ligne d'un triangle centré de 4 lignes", function () {
+    expect(Triangle.dessineTriangleDeSierpinski(4,true)[0]).toEqual('   *'); 
+  });
+
+  it("affiche '  *.*' pour la 2eme ligne d'un triangle centré de 4 lignes", function () {
+    expect(Triangle.dessineTriangleDeSierpinski(4,true)[1]).toEqual('  *.*'); 
+  });
 });

@@ -19,12 +19,29 @@ var genereTriangleDePascal = function (nb_lines) {
   }
   return triangle;
 }
-var uneEtoilePourImpair = function (ligne) {
+var uneEtoilePourImpair = function (ligne, separator) {
+  if (separator === undefined) separator = '';
   return ligne.map(function (elem) {
     return (elem % 2 == 0) ? ' ' : '*';
-  }).join('');
+  }).join(separator);
 }
+
+var uneEtoilePourImpairIsocele = function (ligne, index, nb_lignes) {
+  return genereEspaces(nb_lignes - 1 - index) + uneEtoilePourImpair(ligne, '.'); 
+}
+
+var genereEspaces = function (nb_espaces) {
+  var spaces_to_add = '';
+  for (var i=0; i < nb_espaces; i++) spaces_to_add += ' ';
+  return spaces_to_add;
+};
+
 module.exports.genereTriangleDePascal = genereTriangleDePascal
-module.exports.dessineTriangleDeSierpinski = function (nb_lignes) {
-  return genereTriangleDePascal(nb_lignes).map(uneEtoilePourImpair);
+module.exports.dessineTriangleDeSierpinski = function (nb_lignes, center) {
+  return genereTriangleDePascal(nb_lignes).map(function (ligne, index) {
+    if (center) {
+      return uneEtoilePourImpairIsocele(ligne, index, nb_lignes);
+    }
+    return uneEtoilePourImpair(ligne);
+  });
 }
