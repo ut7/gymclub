@@ -1,6 +1,6 @@
 var Triangle=require('../lib/triangle.js');
 
-describe('genereTriangleDeTriangle', function () {
+describe('genereTriangleDePascal', function () {
   it('doit renvoyer 1 pour un triangle à une ligne', function () {
     expect(Triangle.genereTriangleDePascal(1)[0]).toEqual([1]);
   });
@@ -21,5 +21,9 @@ describe('dessineTriangleDeSierpinski', function () {
 
   it("affiche * * pour la 3e ligne du triangle", function () {
     expect(Triangle.dessineTriangleDeSierpinski(3)[2]).toEqual('* *'); 
+  });
+
+  it("affiche **** pour la 4e ligne du triangle", function () {
+    expect(Triangle.dessineTriangleDeSierpinski(4)[3]).toEqual('****'); 
   });
 });

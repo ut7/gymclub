@@ -20,10 +20,11 @@ var genereTriangleDePascal = function (nb_lines) {
   return triangle;
 }
 var uneEtoilePourImpair = function (ligne) {
-  return '*';
+  return ligne.map(function (elem) {
+    return (elem % 2 == 0) ? ' ' : '*';
+  }).join('');
 }
 module.exports.genereTriangleDePascal = genereTriangleDePascal
 module.exports.dessineTriangleDeSierpinski = function (nb_lignes) {
-  if (nb_lignes == 3) return [uneEtoilePourImpair(genereTriangleDePascal(3)[0]), '**', '* *'];
-  return [uneEtoilePourImpair(genereTriangleDePascal(1)[0])];
+  return genereTriangleDePascal(nb_lignes).map(uneEtoilePourImpair);
 }
