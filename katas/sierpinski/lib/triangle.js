@@ -8,7 +8,7 @@ var construitLigne = function (previous_line) {
   return line;
 };
 
-var genereTriangle = function (nb_lines) {
+var genereTriangleDePascal = function (nb_lines) {
   var triangle = [];
   if (nb_lines >= 1) {
     triangle.push([1]);
@@ -22,8 +22,8 @@ var genereTriangle = function (nb_lines) {
 var uneEtoilePourImpair = function (ligne) {
   return '*';
 }
-module.exports.genereTriangle = genereTriangle
+module.exports.genereTriangleDePascal = genereTriangleDePascal
 module.exports.dessineTriangleDeSierpinski = function (nb_lignes) {
-  if (nb_lignes == 3) return [uneEtoilePourImpair(genereTriangle(3)[0]), '**', '* *'];
-  return [uneEtoilePourImpair(genereTriangle(1)[0])];
+  if (nb_lignes == 3) return [uneEtoilePourImpair(genereTriangleDePascal(3)[0]), '**', '* *'];
+  return [uneEtoilePourImpair(genereTriangleDePascal(1)[0])];
 }
