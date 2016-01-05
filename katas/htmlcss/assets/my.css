@@ -1,0 +1,18 @@
+body {
+  margin: 0px;
+}
+
+.bloc-titre {
+  background-color: seagreen;
+}
+.bloc-texte {
+  width: 50%;
+  display: inline-block;
+}
+
+.left {
+  background-color: blue;
+}
+.right {
+  background-color: red;
+}
