@@ -1,6 +1,7 @@
-var transformA = function () {
-  return 'B-A-B';
-}
+(function (rootObject) {
+  var transformA = function () {
+    return 'B-A-B';
+  }
 
 var transformB = function () {
   return 'A+B+A';
@@ -25,5 +26,7 @@ var genereCourbeSierpinski = function (depth) {
   if (depth === 0) return 'A';
   return convert(genereCourbeSierpinski(depth - 1));
 }
+rootObject.genereCourbeSierpinski = genereCourbeSierpinski;
+})(typeof module === "undefined" ? window : module.exports);
 
-module.exports.genereCourbeSierpinski = genereCourbeSierpinski;
+
