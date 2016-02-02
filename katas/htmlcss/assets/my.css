@@ -1,18 +1,39 @@
-body {
+html,body {
   margin: 0px;
+  height: 100%;
 }
 
-.bloc-titre {
+.container-header {
+  height: 30%;
+}
+
+.container-footer {
+  height: 20%;
+}
+
+.bloc {
+  display: inline-block;
+  height: 10%;
+  padding: 5%;
+  text-align: center;
+}
+
+.bloc-date {
+  width: 20%;
+  background-color: teal;
+}
+
+.bloc-meteo {
+  width: 60%;
   background-color: seagreen;
 }
-.bloc-texte {
-  width: 50%;
-  display: inline-block;
-}
 
-.left {
-  background-color: blue;
+.crop {
+  width: 30%;
+  height: 60%;
+  overflow: hidden;
 }
-.right {
-  background-color: red;
+.bloc-photo {
+  width: 800px;
+  height: 800px;
 }
