@@ -1,0 +1,96 @@
+html {
+  background: url(../images/robi_back.jpg) no-repeat center center fixed
+}
+
+body {
+  color: white
+}
+
+.pitch {
+  margin-left: 50%;
+  margin-right: 20%;
+  margin-top: 15%;
+  margin-bottom: 20%;
+}
+
+h1 {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  line-height: 1;
+  text-align: left;
+  margin: 0 0 12px;
+}
+
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 25px;
+  font-weight: 300;
+  margin: 0 0 30px;
+  text-align: left;
+}
+
+p {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0 0 24px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.mc_embed_signup {
+  width: 100%;
+  margin: 0px;
+}
+
+input {
+  font-size: medium;
+}
+
+input[type=email] {
+    width: 40%;
+    padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+input[type=email]:focus {
+}
+
+input[type=submit] {
+    width: 50%;
+    padding:5px 15px; 
+    margin-left:15px;
+    background:red; 
+    color: white;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    font-weight: bold;
+}
+
+section {
+  margin: 40px;
+}
+#map {
+  height: 860px;
+}
+
+.info {
+  width: 30%;
+  padding: 20px;
+  background-color: #73B6E6;
+  opacity: 0.8;
+}
+.leaflet-popup-content {
+  color: black;
+}
+
+.leaflet-popup-content img {
+  float: left;
+  margin: 10px;
+}
