@@ -2,13 +2,11 @@ convertis = function (arabe) {
     if (arabe == 0) return "";
 
     var table = [ [50,"L"], [40,"XL"], [10,"X"], [9,"IX"], [5,"V"], [4,"IV"], [1,"I"] ];
-    var lastIndex = -1;
     for (var index in table) {
-      if ((lastIndex == -1) && (arabe >= table[index][0])) {
-        lastIndex = index;
+      if (arabe >= table[index][0]) {
+         return table[index][1] + convertis(arabe - table[index][0]);
       };
     }
-    return table[lastIndex][1] + convertis(arabe - table[lastIndex][0]);
 };
 
 
