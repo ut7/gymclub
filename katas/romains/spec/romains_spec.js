@@ -1,20 +1,16 @@
 convertis = function (arabe) {
-    if (arabe===1) {
-        return "I";
+    switch (arabe) {
+        case 1:
+          return "I";
+        case 2:
+          return "II";
+        case 3: 
+          return "III";
+        case 4:
+          return "IV";
     }
-    else if (arabe == 2) {
-        return "II";
-    }
-    else if (arabe == 3) {
-        return "III";
-    }
-    else if (arabe == 4) {
-        return "IV";
-    }
-    else if (arabe > 5) {
-        reste = arabe - 5;
-        reste_romains = convertis(reste);
-        return "V" + reste_romains;
+    if (arabe > 5) {
+        return "V" + convertis(arabe - 5);
     }
     return "V";
 };
