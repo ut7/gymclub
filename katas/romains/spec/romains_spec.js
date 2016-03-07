@@ -11,6 +11,16 @@ convertis = function (arabe) {
         case 4:
           return "IV";
     }
+    if (arabe >= 40) {
+       if (arabe >=50) {
+         return "L" + convertis(arabe - 50);
+       } else {
+         return "XL" + convertis(arabe - 40);
+       }
+    } 
+    if (arabe >= 10) {
+        return "X" + convertis(arabe - 10);
+    }
     if (arabe >= 5) {
         return "V" + convertis(arabe - 5);
     }
@@ -48,6 +58,19 @@ describe("Le convertisseur", function () {
     it("convertit 8 en VIII", function () {
         expect(convertis(8)).toEqual("VIII");
     });
+
+    it("convertit 13 en XIII", function () {
+        expect(convertis(13)).toEqual("XIII");
+    });
+
+    it("convertit 23 en XXIII", function () {
+        expect(convertis(23)).toEqual("XXIII");
+    });
+
+    it("convertit 43 en XLIII", function () {
+        expect(convertis(43)).toEqual("XLIII");
+    });
+
 
    
 });
