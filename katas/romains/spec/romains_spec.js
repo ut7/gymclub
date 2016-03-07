@@ -1,36 +1,16 @@
 convertis = function (arabe) {
-    if (arabe >=50) {
-         return "L" + convertis(arabe - 50);
-    }
+    if (arabe == 0) return "";
 
-    if (arabe >= 40) {
-         return "XL" + convertis(arabe - 40);
-    } 
-
-    if (arabe >= 10) {
-        return "X" + convertis(arabe - 10);
+    var table = [ [50,"L"], [40,"XL"], [10,"X"], [9,"IX"], [5,"V"], [4,"IV"], [1,"I"] ];
+    var lastIndex = -1;
+    for (var index in table) {
+      if ((lastIndex == -1) && (arabe >= table[index][0])) {
+        lastIndex = index;
+      };
     }
-
-    if (arabe >= 9) {
-        return "IX";
-    }
-
-    if (arabe >= 5) {
-        return "V" + convertis(arabe - 5);
-    }
-    if (arabe == 4) {
-        return "IV";
-    }
-    if (arabe == 1) {
-        return "I";
-    }
-    if (arabe > 0) {
-       return "I" + convertis(arabe - 1);
-    }
-    if (arabe == 0) {
-        return "";
-    }
+    return table[lastIndex][1] + convertis(arabe - table[lastIndex][0]);
 };
+
 
 describe("Le convertisseur", function () {
     it("convertit 1 en I", function () {
