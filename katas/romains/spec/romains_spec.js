@@ -1,14 +1,20 @@
 convertis = function (arabe) {
-    if (arabe >= 40) {
-       if (arabe >=50) {
+    if (arabe >=50) {
          return "L" + convertis(arabe - 50);
-       } else {
+    }
+
+    if (arabe >= 40) {
          return "XL" + convertis(arabe - 40);
-       }
     } 
+
     if (arabe >= 10) {
         return "X" + convertis(arabe - 10);
     }
+
+    if (arabe >= 9) {
+        return "IX";
+    }
+
     if (arabe >= 5) {
         return "V" + convertis(arabe - 5);
     }
@@ -18,11 +24,11 @@ convertis = function (arabe) {
     if (arabe == 1) {
         return "I";
     }
+    if (arabe > 0) {
+       return "I" + convertis(arabe - 1);
+    }
     if (arabe == 0) {
         return "";
-    }
-    if (arabe < 4) {
-       return "I" + convertis(arabe - 1);
     }
 };
 
@@ -57,6 +63,10 @@ describe("Le convertisseur", function () {
 
     it("convertit 8 en VIII", function () {
         expect(convertis(8)).toEqual("VIII");
+    });
+
+    it("convertit 9 en IX", function () {
+        expect(convertis(9)).toEqual("IX");
     });
 
     it("convertit 13 en XIII", function () {
