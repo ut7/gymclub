@@ -1,16 +1,4 @@
 convertis = function (arabe) {
-    switch (arabe) {
-	case 0:
-          return "";
-        case 1:
-          return "I";
-        case 2:
-          return "II";
-        case 3: 
-          return "III";
-        case 4:
-          return "IV";
-    }
     if (arabe >= 40) {
        if (arabe >=50) {
          return "L" + convertis(arabe - 50);
@@ -23,6 +11,18 @@ convertis = function (arabe) {
     }
     if (arabe >= 5) {
         return "V" + convertis(arabe - 5);
+    }
+    if (arabe == 4) {
+        return "IV";
+    }
+    if (arabe == 1) {
+        return "I";
+    }
+    if (arabe == 0) {
+        return "";
+    }
+    if (arabe < 4) {
+       return "I" + convertis(arabe - 1);
     }
 };
 
