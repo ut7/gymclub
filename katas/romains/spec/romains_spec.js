@@ -1,5 +1,7 @@
 convertis = function (arabe) {
     switch (arabe) {
+	case 0:
+          return "";
         case 1:
           return "I";
         case 2:
@@ -9,10 +11,9 @@ convertis = function (arabe) {
         case 4:
           return "IV";
     }
-    if (arabe > 5) {
+    if (arabe >= 5) {
         return "V" + convertis(arabe - 5);
     }
-    return "V";
 };
 
 describe("Le convertisseur", function () {
