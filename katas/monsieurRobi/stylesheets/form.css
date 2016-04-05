@@ -1,0 +1,15 @@
+html {
+  background: url(../images/robi_back.jpg) no-repeat center center fixed;
+  color: white;
+}
+
+#pitch {
+  margin-left: 50%;
+  margin-right: 50px;
+  margin-top: 200px;
+}
+
+#email {
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
