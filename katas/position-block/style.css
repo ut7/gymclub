@@ -1,5 +1,6 @@
 .container {
-  width: 50%;
+  margin: 25vh 25vw;
+  width: 50vw;
   height: 50vh;
   background-color: rosybrown;
 }
