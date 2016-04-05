@@ -3,4 +3,14 @@
   width: 50vw;
   height: 50vh;
   background-color: rosybrown;
+  display: flex;
+}
+
+.container > div {
+  margin: 10px;
+  flex: 1;
+  background-color: seagreen;
+}
+.container > div:nth-child(1) {
+  flex: 2;
 }
