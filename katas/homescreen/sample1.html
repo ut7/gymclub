@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<style>
+
+.flex
+{
+  /* style basique */
+width: 350px;
+height: 200px;
+border: 1px solid #555;
+font: 1em Arial;
+
+      /* instaure la flexbox */
+display: -webkit-flex;
+         -webkit-flex-direction: row;
+
+display: flex;
+         flex-direction: row;
+}
+
+.flex > div
+{
+  -webkit-flex: 1 1 auto;
+flex: 1 1 auto;
+
+width: 40px; /* Pour faire fonctionner correctement la transition. (Les transitions vers "width:auto" sont buggées dans Gecko et Webkit, au moins. Voir http://bugzil.la/731886 pour plus d’informations.) */
+
+       -webkit-transition: width 0.7s ease-out;
+transition: width 0.7s ease-out;
+}
+
+/* colors */
+.flex > div:nth-child(1){ background : #009246; }
+.flex > div:nth-child(2){ background : #F1F2F1; }
+.flex > div:nth-child(3){ background : #CE2B37; }
+
+.flex > div:hover
+{
+width: 100px;
+}
+
+</style>
+
+</head>
+<body>
+<p>Flexbox nuovo</p>
+<div class="flex">
+<div>uno</div>
+<div>due</div>
+<div>tre</div>
+</div>
+</body>
+</html>

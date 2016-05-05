@@ -1,0 +1,116 @@
+@import url('http://fonts.googleapis.com/css?family=Arvo:700|Open+Sans:400italic,400');
+@import url('http://fast.fonts.com/cssapi/95b765fd-fae4-4f1b-8155-d8244914a5c6.css');
+
+/* Layout */
+
+* {
+  *   box-sizing: border-box; /* pour maîtriser width et flex-basis */
+}
+
+html {
+display: flex; flex-direction: column; /* correction bug IE de min-height non appliqué à body */
+}
+
+body {
+display: flex; /* crée un contexte flex pour ses enfants */
+         flex-direction: column; /* affichage vertical */
+         height: 100vh; /* toute la hauteur du viewport */
+         max-height: 100vh; /* toute la hauteur du viewport */
+}
+
+.wrapper {
+flex: 1 1 auto; /* occupe la hauteur restante */
+display: flex; /* crée un contexte flex pour ses enfants */
+}
+
+header {
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav,
+  aside {
+width: 40%;
+  }
+
+article {
+flex: 1 1; /* occupe la largeur restante */
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+nav {
+order: -1; /* nav s'affiche en premier */
+}
+
+
+/* Responsive (fenêtres de moins de 640px) */
+
+@media (max-width: 640px) {
+  .wrapper {
+    flex-direction: column; /* affichage vertical */
+  }
+  nav,
+    aside {
+width: auto; /* pour écraser la valeur 10em */
+    }
+  nav,
+    aside,
+    article {
+      flex-basis: auto; /* pour écraser la valeur 0, due au flex: 1 */
+    }
+  nav {
+order: 0; /* nav reprend sa place */
+  }
+}
+
+/* Decoration */
+
+body {
+  margin: 0;
+  background: #999;
+  font-family: arial, sans-serif;
+  font-family: 'Adelle W01', 'Arvo', Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+}
+
+header,
+  nav,
+  aside,
+  article,
+  footer {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+header {
+  background: #ffeebb;
+}
+
+nav {
+  background: #ccccff;
+}
+
+aside {
+  background: #ccccff;
+}
+
+article {
+  background: #dddd88;
+  font-size: 80px;
+  font-weight: 10;
+}
+
+.crop {
+  width: 50%;
+  height: 50%;
+  background: url('alex.jpg');
+  background-size: cover;
+}
+
+footer {
+  background: #ffeebb;
+}
