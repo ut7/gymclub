@@ -21,6 +21,7 @@ display: flex; /* crée un contexte flex pour ses enfants */
 .wrapper {
 flex: 1 1 auto; /* occupe la hauteur restante */
 display: flex; /* crée un contexte flex pour ses enfants */
+height: 70vh;
 }
 
 header {
@@ -105,10 +106,13 @@ article {
 }
 
 .crop {
-  width: 50%;
-  height: 50%;
-  background: url('alex.jpg');
-  background-size: cover;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.crop img {
+  width: 100%;
 }
 
 footer {
