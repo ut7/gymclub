@@ -1,0 +1,2 @@
+describe Fourmi do
+end
