@@ -1,9 +1,9 @@
 class Plateau
-  attr_reader :longueur, :largeur
+  attr_reader :lignes, :colonnes
 
   def initialize(lignes, colonnes)
-    @largeur = lignes
-    @longueur = colonnes
+    @lignes = lignes
+    @colonnes = colonnes
     
     @cases = Array.new(lignes){Array.new(colonnes)}
   end

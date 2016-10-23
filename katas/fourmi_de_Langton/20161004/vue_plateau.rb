@@ -5,8 +5,8 @@ class VuePlateau
 
   def grille
     chaine_grille = ""
-    @plateau.longueur.times do
-      chaine_grille += "| " * @plateau.largeur + "|\n"
+    @plateau.lignes.times do
+      chaine_grille += "| " * @plateau.colonnes + "|\n"
     end
     chaine_grille
   end
