@@ -5,14 +5,22 @@ class Plateau
     @lignes = lignes
     @colonnes = colonnes
     
-    @cases = Array.new(lignes){Array.new(colonnes)}
+    @cases = Array.new(lignes){Array.new(colonnes, Case.new(:blanc))}
   end
 
-  def contient(ligne,colonne)
+  def case(ligne,colonne)
     @cases[ligne][colonne]
   end
 
   def place(positionnable,ligne,colonne)
-    @cases[ligne][colonne] = positionnable
+    @cases[ligne][colonne].objet = positionnable
+  end
+end
+
+class Case
+  attr_accessor :couleur, :objet
+
+  def initialize(couleur)
+    @couleur = couleur
   end
 end

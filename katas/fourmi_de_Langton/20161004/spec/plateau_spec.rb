@@ -5,7 +5,13 @@ describe Plateau do
     plateau = Plateau.new(3,3)
     fourmi = Fourmi.new
     plateau.place(fourmi, 1,1)
-    expect(plateau.contient(1,1)).to eq(fourmi)
+    expect(plateau.case(1,1).objet).to eq(fourmi)
+  end
+
+  it "contient initialement que des cases blanches" do
+    plateau = Plateau.new(3,3)
+    expect(plateau.case(1,1).couleur).to eq(:blanc)
+    expect(plateau.case(2,2).couleur).to eq(:blanc)
   end
 
 end
