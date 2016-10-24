@@ -1,5 +1,5 @@
-require './plateau'
-require './fourmi'
+require 'plateau'
+require 'fourmi'
 describe Plateau do
   it "met un objet positionnable dans sa position de depart" do
     plateau = Plateau.new(3,3)

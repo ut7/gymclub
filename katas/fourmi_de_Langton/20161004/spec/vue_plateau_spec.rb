@@ -1,5 +1,5 @@
-require './vue_plateau'
-require './plateau'
+require 'vue_plateau'
+require 'plateau'
 describe VuePlateau do
   it "affiche en position de départ" do
     plateau = Plateau.new(3,3)
