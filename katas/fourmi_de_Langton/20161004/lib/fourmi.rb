@@ -1,15 +1,27 @@
 class Fourmi
+  attr_accessor :ligne, :colonne, :direction
+  DIRECTIONS = [:gauche, :haut, :droite, :bas]
+
   def initialize
-    @x = 0
-    @y = 0
+    @direction = :haut
   end
 
-  def monter(direction)
-    @y += 1  
+  def avance(plateau)
+    case_plateau = plateau.case(self.ligne, self.colonne)
+    self.direction = direction_case_blanche
+    send("tourne_#{direction}".to_sym)
+    case_plateau.couleur = :noir
   end
 
-  def afficher
-    resultat = " " * @x + "\n" * @y
-    puts resultat
+  def direction_index
+    DIRECTIONS.find_index(self.direction) 
+  end
+
+  def direction_case_blanche
+    DIRECTIONS[(direction_index + 1) % 4]
+  end
+
+  def tourne_droite
+    self.colonne += 1
   end
 end
