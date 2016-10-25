@@ -27,11 +27,11 @@ class Fourmi
     DIRECTIONS.find_index(self.direction) 
   end
 
-  def direction_case_blanche
+  def direction_case_noire
     DIRECTIONS[(direction_index + 1) % 4]
   end
 
-  def direction_case_noire
+  def direction_case_blanche
     DIRECTIONS[(direction_index - 1) % 4]
   end
 

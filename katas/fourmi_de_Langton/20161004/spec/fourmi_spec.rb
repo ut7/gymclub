@@ -12,7 +12,7 @@ describe Fourmi do
     plateau.place(fourmi, 1,1)
     fourmi.avance(plateau)
     expect(fourmi.ligne).to eq(1)
-    expect(fourmi.colonne).to eq(2)
+    expect(fourmi.colonne).to eq(0)
     expect(plateau.case(1,1).couleur).to eq(:noir)
     expect(plateau.case(1,2).couleur).to eq(:blanc)
   end
@@ -25,10 +25,10 @@ describe Fourmi do
 
     plateau.place(fourmi, 1,1)
     fourmi.avance(plateau)
-    expect(fourmi.ligne).to eq(2)
+    expect(fourmi.ligne).to eq(0)
     expect(fourmi.colonne).to eq(1)
     expect(plateau.case(1,1).couleur).to eq(:noir)
-    expect(plateau.case(2,1).couleur).to eq(:blanc)
+    expect(plateau.case(0,1).couleur).to eq(:blanc)
   end
 
   it "avance depuis une case noire regardant vers le haut" do
@@ -40,7 +40,7 @@ describe Fourmi do
     plateau.place(fourmi, 1,1)
     fourmi.avance(plateau)
     expect(fourmi.ligne).to eq(1)
-    expect(fourmi.colonne).to eq(0)
+    expect(fourmi.colonne).to eq(2)
     expect(plateau.case(1,1).couleur).to eq(:blanc)
 
   end
