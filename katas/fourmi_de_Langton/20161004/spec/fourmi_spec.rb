@@ -12,6 +12,7 @@ describe Fourmi do
       expect(subject.ligne).to eq(1)
       expect(subject.colonne).to eq(2)
       expect(plateau.case(1,1).couleur).to eq(:noir)
+      expect(plateau.case(1,2).couleur).to eq(:blanc)
     end
   end
 end
