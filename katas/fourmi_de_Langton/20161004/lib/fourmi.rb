@@ -24,4 +24,16 @@ class Fourmi
   def tourne_droite
     self.colonne += 1
   end
+
+  def tourne_bas
+    self.ligne += 1
+  end
+
+  def tourne_gauche
+    self.colonne -= 1
+  end
+
+  def tourne_haut
+    self.ligne -= 1
+  end
 end
