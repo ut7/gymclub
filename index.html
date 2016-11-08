@@ -15,14 +15,33 @@
         <li><a href="purple-rain.html" title="purple rain">Purple Rain</a></li>
       </ul>
     </nav>
+
+    <section>
+      <h4>Les chansons (ou artistes) qui ont été refusés</h4>
+      <ul>
+        <li>Michel Sardou</li>
+      </ul>
+    </section>
+
+    <section>
+      <h4>Proposez votre chanson :</h4>
+      <form name="new-song" action="#">
+        <label for="artist">Artiste</label>
+        <input type="text" name="artist" id="artist" /><br>
+        <label for="song">Titre de la chanson</label>
+        <input type="text" name="song" id="song" />
+        <button type="submit" name="submit">Soumettre votre proposition</button>
+      </form>
+    </section>
+
     <script>
       document.getElementById('search').addEventListener('input', function(evenement) {
         document.querySelectorAll(`.chansons a`).forEach( (element) => {
           element.style.backgroundColor = "";
         });
-        let value = evenement.currentTarget.value.trim().replace(/[ ]+/, ' ')
+        let value = evenement.currentTarget.value.toLowerCase().trim().replace(/[ ]+/, ' ')
         document.querySelectorAll(`.chansons [title*='${value}']`).forEach((element) => {
-          element.style.backgroundColor = "red";
+          element.style.color = "black";
         });
       });
     </script>
