@@ -8,15 +8,11 @@
     <title>Liste</title>
   </head>
   <body>
-    <input id="search" type="search" list="chansons" />
-    <datalist id="chansons">
-      <option value="Purple Rain">
-      <option value="Hey Jude">
-    </datalist>
+    <input id="search" type="search" />
     <nav>
       <ul class="chansons">
-        <li><a href="hey-jude.html" title="Hey Jude">Hey Jude</a></li>
-        <li><a href="purple-rain.html" title="Purple Rain">Purple Rain</a></li>
+        <li><a href="hey-jude.html" title="hey jude">Hey Jude</a></li>
+        <li><a href="purple-rain.html" title="purple rain">Purple Rain</a></li>
       </ul>
     </nav>
     <script>
@@ -24,8 +20,8 @@
         document.querySelectorAll(`.chansons a`).forEach( (element) => {
           element.style.backgroundColor = "";
         });
-        let value = evenement.currentTarget.value;
-        document.querySelectorAll(`.chansons [title='${value}']`).forEach((element) => {
+        let value = evenement.currentTarget.value.trim().replace(/[ ]+/, ' ')
+        document.querySelectorAll(`.chansons [title*='${value}']`).forEach((element) => {
           element.style.backgroundColor = "red";
         });
       });
