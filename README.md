@@ -4,3 +4,7 @@
 ## 2. DONE Choisir une chanson parmi une liste
 ## 3. INPROGRESS Rechercher une chanson
 ## 4. Proposer une chanson
+
+On va faire du es6:
+
+http://adrianmejia.com/blog/2016/10/19/Overview-of-JavaScript-ES6-features-a-k-a-ECMAScript-6-and-ES2015/#.WA4G-3dZebs.hackernews
