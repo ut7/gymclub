@@ -21,8 +21,11 @@
     </nav>
     <script>
       document.getElementById('search').addEventListener('input', function(evenement) {
+        document.querySelectorAll(`.chansons a`).forEach( (element) => {
+          element.style.backgroundColor = "";
+        });
         let value = evenement.currentTarget.value;
-        var test = document.querySelectorAll(`.chansons [title='${value}']`).forEach(function(element) {
+        document.querySelectorAll(`.chansons [title='${value}']`).forEach((element) => {
           element.style.backgroundColor = "red";
         });
       });
