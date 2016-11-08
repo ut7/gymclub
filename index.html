@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Liste</title>
+  </head>
+  <body>
+    <input id="search" type="search" list="chansons" />
+    <datalist id="chansons">
+      <option value="Purple Rain">
+      <option value="Hey Jude">
+    </datalist>
+    <nav>
+      <ul class="chansons">
+        <li><a href="hey-jude.html" title="Hey Purple">Hey Jude</a></li>
+        <li><a href="purple-rain.html" title="Purple Rain">Purple Rain</a></li>
+      </ul>
+    </nav>
+    <script>
+      document.getElementById('search').addEventListener('input', function(evenement) {
+        let value = evenement.currentTarget.value;
+        document.querySelectorAll(`.chansons [title='${value}']`);
+      });
+    </script>
+  </body>
+</html>
