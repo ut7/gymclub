@@ -25,7 +25,7 @@
 
     <section>
       <h4>Proposez votre chanson :</h4>
-      <form name="new-song" action="#">
+      <form id="proposition" name="new-song" action="#">
         <label for="artist">Artiste</label>
         <input type="text" name="artist" id="artist" /><br>
         <label for="song">Titre de la chanson</label>
@@ -39,10 +39,17 @@
         document.querySelectorAll(`.chansons a`).forEach( (element) => {
           element.style.backgroundColor = "";
         });
-        let value = evenement.currentTarget.value.toLowerCase().trim().replace(/[ ]+/, ' ')
+        let value = evenement.currentTarget.value.toLowerCase().trim().replace(/[ ]+/, ' ');
         document.querySelectorAll(`.chansons [title*='${value}']`).forEach((element) => {
           element.style.color = "black";
         });
+      });
+
+      document.getElementById('proposition').addEventListener('submit', function(evenement) {
+        evenement.preventDefault();
+        let song = new FormData(evenement.currentTarget).get('song');
+        console.log("song: " + song);
+
       });
     </script>
   </body>
