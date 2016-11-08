@@ -15,14 +15,16 @@
     </datalist>
     <nav>
       <ul class="chansons">
-        <li><a href="hey-jude.html" title="Hey Purple">Hey Jude</a></li>
+        <li><a href="hey-jude.html" title="Hey Jude">Hey Jude</a></li>
         <li><a href="purple-rain.html" title="Purple Rain">Purple Rain</a></li>
       </ul>
     </nav>
     <script>
       document.getElementById('search').addEventListener('input', function(evenement) {
         let value = evenement.currentTarget.value;
-        document.querySelectorAll(`.chansons [title='${value}']`);
+        var test = document.querySelectorAll(`.chansons [title='${value}']`).forEach(function(element) {
+          element.style.backgroundColor = "red";
+        });
       });
     </script>
   </body>
