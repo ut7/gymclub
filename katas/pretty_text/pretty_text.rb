@@ -2,25 +2,17 @@ class PrettyText
   def self.wrap(text, max)
     lines = []
     words = text.split
-    line_length = 0
-    words_line = []
+
+    line = Line.new(max)
 
     words.each do |word|
-      line_length += word.length
-      if line_length <= max
-        words_line << word
-        line_length += 1
-      else
-        lines << words_line.join(' ')
-        words_line = []
-        line_length = 0
-        words_line << word
-        line_length += word.length
-        line_length += 1
+      if ! line.add_word(word)
+        lines << line
+        line = Line.new(max)
+        line.add_word(word)
       end
     end
-    lines << words_line.join(' ')
-    lines.join("\n")
-  end
-
+    lines << line
+    lines.map {|line| line.to_s}.join("\n")
+ end
 end
