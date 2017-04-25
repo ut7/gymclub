@@ -18,7 +18,7 @@ ex. :
 Note : pour 2c. et 2d., il y aura probablement un facteur correctif à ajouter, pour compenser le fait que la hauteur d'un caractère est généralement plus grande que sa largeur.
 
 ex :
-
+```
                       Early one mornin' the sun
                    was shinin' I was layin' in bed
                Wondrin' if she'd changed at all If her
@@ -50,7 +50,7 @@ fishin' boat Right outside of Delacroix But all the while I was alone
                  When she bent down to tie the laces
                        Of my shoe Tangled up in
                                  blue
-
+```
 
 
 
