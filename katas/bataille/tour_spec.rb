@@ -10,8 +10,8 @@ describe Bataille::Tour do
 
 
   it "reordonne les 2 mains avec la carte en haut de pile de la première main > à celle de la deuxième main" do
-    bob = Joueur.new([2,3,11])
-    alice = Joueur.new([3,4,5])
+    bob = Joueur.new(jeu: [2,3,11])
+    alice = Joueur.new(jeu: [3,4,5])
     tour = Bataille::Tour.new(bob, alice)
     tour.suivant!
     expect(alice.jeu.size).to eq(2)
@@ -22,8 +22,8 @@ describe Bataille::Tour do
   end
 
   it "reordonne les 2 mains avec les 2 cartes de haut de pile identiques" do
-    bob = Joueur.new([2,3,11])
-    alice = Joueur.new([5,6,11])
+    bob = Joueur.new(jeu: [2,3,11])
+    alice = Joueur.new(jeu: [5,6,11])
     tour = Bataille::Tour.new(bob, alice)
     tour.suivant!
     expect(tour.levee).to eq([11,11])
@@ -32,8 +32,8 @@ describe Bataille::Tour do
   end
 
   it "reordonne les 2 mains avec une levee" do
-    bob = Joueur.new [ 2, 3 , 11 ], StrategieDeRangementAleatoire
-    alice = Joueur.new [ 5, 6 , 11 ]
+    bob = Joueur.new(jeu: [ 2, 3 , 11 ], strategie: StrategieDeRangementAleatoire)
+    alice = Joueur.new(jeu:[ 5, 6 , 11 ])
     tour = Bataille::Tour.new(bob, alice)
     tour.suivant!
     tour.suivant!
