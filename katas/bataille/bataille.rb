@@ -1,16 +1,16 @@
 require './tour'
 module Bataille
-  def self.result_war(main1, main2)
+  def self.result_war(joueur1, joueur2)
     
-    tour = Tour.new(main1, main2)
-    while (tour.main1.any? && tour.main2.any?) do
+    tour = Tour.new(joueur1, joueur2)
+    while (joueur1.avec_cartes? && joueur2.avec_cartes?) do
       tour.suivant!
     end
 
-    if tour.main1.empty?
-      main2
+    if joueur1.sans_carte?
+      joueur2
     else
-      main1
+      joueur1
     end
       
   end

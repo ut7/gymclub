@@ -1,24 +1,26 @@
 module Bataille
   class Tour
-    attr_reader :main1, :main2, :levee
+    attr_reader :joueur1, :joueur2, :levee
 
-    def initialize(main1, main2)
-      @main1 = main1
-      @main2 = main2
+    def initialize(joueur1, joueur2)
+      @joueur1 = joueur1
+      @joueur2 = joueur2
       @levee = []
     end
 
     def suivant!
-      gagnant = main_gagnante
+      gagnant = joueur_gagnant
       update_levee!
-      distribue_levee!(gagnant) if gagnant
+      if gagnant
+        distribue_levee!(gagnant.jeu)
+      end
     end
 
     private
 
-    def main_gagnante
-      hash = { main1.last => main1, main2.last => main2 }
-      hash[ carte_gagnante(main1.last, main2.last) ]
+    def joueur_gagnant
+      hash = { jeu1.last => joueur1, jeu2.last => joueur2 }
+      hash[ carte_gagnante(jeu1.last, jeu2.last) ]
     end
 
     def carte_gagnante(carte1, carte2)
@@ -29,14 +31,24 @@ module Bataille
       end
     end
 
+    def jeu1
+      joueur1.jeu
+    end
+
+    def jeu2
+      joueur2.jeu
+    end
+
     def update_levee!
-      haut1 = main1.pop
-      haut2 = main2.pop 
+      haut1 = jeu1.pop
+      haut2 = jeu2.pop 
       levee.push(haut1, haut2)
     end
 
-    def distribue_levee!(main)
-      main.unshift(levee.pop) while levee.any?
+    def distribue_levee!(jeu)
+      jeu.unshift(levee)
+      jeu.flatten!
+      @levee = []
     end
   end
 end
