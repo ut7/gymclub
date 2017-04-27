@@ -17,10 +17,15 @@ module Bataille
     private
 
     def main_gagnante
-      if main1.last > main2.last
-        main1
-      elsif main1.last < main2.last
-        main2
+      hash = { main1.last => main1, main2.last => main2 }
+      hash[ carte_gagnante(main1.last, main2.last) ]
+    end
+
+    def carte_gagnante(carte1, carte2)
+      if carte1 > carte2
+        carte1
+      elsif carte1 < carte2
+        carte2
       end
     end
 
