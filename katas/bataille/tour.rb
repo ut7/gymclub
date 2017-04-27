@@ -12,7 +12,7 @@ module Bataille
       gagnant = joueur_gagnant
       update_levee!
       if gagnant
-        distribue_levee!(gagnant.jeu)
+        distribue_levee!(gagnant)
       end
     end
 
@@ -45,9 +45,10 @@ module Bataille
       levee.push(haut1, haut2)
     end
 
-    def distribue_levee!(jeu)
-      jeu.unshift(levee)
-      jeu.flatten!
+    def distribue_levee!(joueur)
+      joueur.strategie.ordonne!(levee) if joueur.strategie
+      joueur.jeu.unshift(levee)
+      joueur.jeu.flatten!
       @levee = []
     end
   end

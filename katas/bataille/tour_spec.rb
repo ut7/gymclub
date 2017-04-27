@@ -32,7 +32,7 @@ describe Bataille::Tour do
   end
 
   it "reordonne les 2 mains avec une levee" do
-    bob = Joueur.new [ 2, 3 , 11 ]
+    bob = Joueur.new [ 2, 3 , 11 ], StrategieDeRangementAleatoire
     alice = Joueur.new [ 5, 6 , 11 ]
     tour = Bataille::Tour.new(bob, alice)
     tour.suivant!
