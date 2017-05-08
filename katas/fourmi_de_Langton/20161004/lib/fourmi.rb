@@ -11,31 +11,24 @@ class Fourmi
 
   def avance
     case_plateau = plateau.case(self.ligne, self.colonne)
-    case_plateau.couleur == :blanc ? avance_depuis_case_blanche(case_plateau) : avance_depuis_case_noire(case_plateau)
+    rules = {
+      blanc: { offset: -1, :nouvelle_couleur => :noir },
+      noir:  { offset:  1, :nouvelle_couleur => :blanc }
+    }
+    couleur = case_plateau.couleur
+    self.direction = nouvelle_direction(rules[couleur][:offset])
+    send("tourne_#{direction}".to_sym)
+    case_plateau.couleur = rules[couleur][:nouvelle_couleur]
+
   end
 
-  def avance_depuis_case_blanche(case_plateau)
-    self.direction = direction_case_blanche
-    send("tourne_#{direction}".to_sym)
-    case_plateau.couleur = :noir
-  end
-
-  def avance_depuis_case_noire(case_plateau)
-    self.direction = direction_case_noire
-    send("tourne_#{direction}".to_sym)
-    case_plateau.couleur = :blanc
-  end
 
   def direction_index
     DIRECTIONS.find_index(self.direction) 
   end
 
-  def direction_case_noire
-    DIRECTIONS[(direction_index + 1) % 4]
-  end
-
-  def direction_case_blanche
-    DIRECTIONS[(direction_index - 1) % 4]
+  def nouvelle_direction(offset)
+    DIRECTIONS[(direction_index + offset) % 4]
   end
 
   def tourne_droite
