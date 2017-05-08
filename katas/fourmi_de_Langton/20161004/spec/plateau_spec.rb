@@ -3,7 +3,7 @@ require 'fourmi'
 describe Plateau do
   it "met un objet positionnable dans sa position de depart" do
     plateau = Plateau.new(3,3)
-    fourmi = Fourmi.new
+    fourmi = Fourmi.new(plateau)
     plateau.place(fourmi, 1,1)
     expect(plateau.case(1,1).objet).to eq(fourmi)
     expect(fourmi.ligne).to eq(1)

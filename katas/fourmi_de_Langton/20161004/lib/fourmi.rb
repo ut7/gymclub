@@ -1,12 +1,13 @@
 class Fourmi
-  attr_accessor :ligne, :colonne, :direction
+  attr_accessor :plateau, :ligne, :colonne, :direction
   DIRECTIONS = [:gauche, :haut, :droite, :bas]
 
-  def initialize
+  def initialize(plateau)
+    @plateau = plateau
     @direction = :haut
   end
 
-  def avance(plateau)
+  def avance
     case_plateau = plateau.case(self.ligne, self.colonne)
     case_plateau.couleur == :blanc ? avance_depuis_case_blanche(case_plateau) : avance_depuis_case_noire(case_plateau)
   end
