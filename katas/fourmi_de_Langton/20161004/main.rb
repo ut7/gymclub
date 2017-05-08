@@ -6,7 +6,7 @@ plateau = Plateau.new(80,80)
 vue_plateau = VuePlateau.new(plateau)
 fourmi = Fourmi.new(plateau, 40, 40)
 
-100.times.each do |tour|
+100.times.each do
   fourmi.avance
   vue_plateau.affiche
 end
