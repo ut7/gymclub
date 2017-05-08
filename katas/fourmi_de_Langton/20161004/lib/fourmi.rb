@@ -2,8 +2,10 @@ class Fourmi
   attr_accessor :plateau, :ligne, :colonne, :direction
   DIRECTIONS = [:gauche, :haut, :droite, :bas]
 
-  def initialize(plateau)
+  def initialize(plateau, ligne, colonne)
     @plateau = plateau
+    self.ligne = ligne
+    self.colonne = colonne
     @direction = :haut
   end
 

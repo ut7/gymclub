@@ -12,11 +12,6 @@ class Plateau
     @cases[ligne][colonne]
   end
 
-  def place(positionnable,ligne,colonne)
-    @cases[ligne][colonne].objet = positionnable
-    positionnable.ligne = ligne
-    positionnable.colonne = colonne
-  end
 end
 
 class Case

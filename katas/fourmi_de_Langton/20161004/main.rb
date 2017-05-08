@@ -4,8 +4,7 @@ require './lib/vue_plateau'
 
 plateau = Plateau.new(80,80)
 vue_plateau = VuePlateau.new(plateau)
-fourmi = Fourmi.new(plateau)
-plateau.place(fourmi, 40,40)
+fourmi = Fourmi.new(plateau, 40, 40)
 
 100.times.each do |tour|
   fourmi.avance
