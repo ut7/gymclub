@@ -1,49 +1,44 @@
 class Fourmi
   attr_accessor :plateau, :ligne, :colonne, :direction
-  DIRECTIONS = [:gauche, :haut, :droite, :bas]
+
+  DIRECTIONS = [
+    { colonne_offset: -1, ligne_offset:  0 }, # gauche
+    { colonne_offset:  0, ligne_offset: -1 }, # haut
+    { colonne_offset:  1, ligne_offset:  0 }, # droite
+    { colonne_offset:  0, ligne_offset:  1 }  # bas
+  ]
+
+  RULES = {
+    blanc: { offset_direction: -1, :nouvelle_couleur => :noir },
+    noir:  { offset_direction:  1, :nouvelle_couleur => :blanc }
+  }
 
   def initialize(plateau, ligne, colonne)
-    @plateau = plateau
+    self.plateau = plateau
     self.ligne = ligne
     self.colonne = colonne
-    @direction = :haut
+    self.direction = 1
   end
 
   def avance
     case_plateau = plateau.case(self.ligne, self.colonne)
-    rules = {
-      blanc: { offset: -1, :nouvelle_couleur => :noir },
-      noir:  { offset:  1, :nouvelle_couleur => :blanc }
-    }
     couleur = case_plateau.couleur
-    self.direction = nouvelle_direction(rules[couleur][:offset])
-    send("tourne_#{direction}".to_sym)
-    case_plateau.couleur = rules[couleur][:nouvelle_couleur]
-
+    tourne(self.direction = nouvelle_direction(couleur))
+    case_plateau.couleur = nouvelle_couleur(couleur)
   end
 
 
-  def direction_index
-    DIRECTIONS.find_index(self.direction) 
+  def nouvelle_direction(couleur)
+    (direction + RULES[couleur][:offset_direction]) % 4
   end
 
-  def nouvelle_direction(offset)
-    DIRECTIONS[(direction_index + offset) % 4]
+  def nouvelle_couleur(couleur)
+    RULES[couleur][:nouvelle_couleur]
   end
 
-  def tourne_droite
-    self.colonne += 1
+  def tourne(direction)
+    self.colonne += DIRECTIONS[direction][:colonne_offset]
+    self.ligne += DIRECTIONS[direction][:ligne_offset]
   end
 
-  def tourne_bas
-    self.ligne += 1
-  end
-
-  def tourne_gauche
-    self.colonne -= 1
-  end
-
-  def tourne_haut
-    self.ligne -= 1
-  end
 end

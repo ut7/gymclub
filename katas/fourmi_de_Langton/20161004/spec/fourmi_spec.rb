@@ -14,7 +14,7 @@ describe Fourmi do
     plateau = Plateau.new(3,3)
     plateau.case(1,1).couleur = :blanc
     fourmi = Fourmi.new(plateau, 1, 1)
-    fourmi.direction = :haut
+    fourmi.direction = 1
 
     fourmi.avance
     expect(fourmi.ligne).to eq(1)
@@ -27,7 +27,7 @@ describe Fourmi do
     plateau = Plateau.new(3,3)
     plateau.case(1,1).couleur = :blanc
     fourmi = Fourmi.new(plateau, 1,1)
-    fourmi.direction = :droite
+    fourmi.direction = 2
 
     fourmi.avance
     expect(fourmi.ligne).to eq(0)
@@ -40,7 +40,7 @@ describe Fourmi do
     plateau = Plateau.new(3,3)
     plateau.case(1,1).couleur = :noir
     fourmi = Fourmi.new(plateau, 1, 1)
-    fourmi.direction = :haut
+    fourmi.direction = 1
 
     fourmi.avance
     expect(fourmi.ligne).to eq(1)
