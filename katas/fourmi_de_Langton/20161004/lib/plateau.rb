@@ -5,7 +5,7 @@ class Plateau
     @lignes = lignes
     @colonnes = colonnes
     
-    @cases = Array.new(lignes){Array.new(colonnes) {:blanc}}
+    @cases = Array.new(lignes){Array.new(colonnes) {0}}
   end
 
   def case(ligne,colonne)

@@ -8,10 +8,7 @@ class Fourmi
     { colonne_offset:  0, ligne_offset:  1 }  # bas
   ]
 
-  RULES = {
-    blanc: { offset_direction: -1, :nouvelle_couleur => :noir },
-    noir:  { offset_direction:  1, :nouvelle_couleur => :blanc }
-  }
+  RULES = [ -1, 1 ]
 
   def initialize(plateau, ligne, colonne)
     self.plateau = plateau
@@ -30,11 +27,11 @@ class Fourmi
   private
 
   def nouvelle_direction(couleur)
-    (direction + RULES[couleur][:offset_direction]) % 4
+    (direction + RULES[couleur]) % 4
   end
 
   def nouvelle_couleur(couleur)
-    RULES[couleur][:nouvelle_couleur]
+    ( couleur + 1 ) % RULES.size
   end
 
   def tourne(direction)
