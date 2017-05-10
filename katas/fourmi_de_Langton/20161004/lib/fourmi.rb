@@ -28,6 +28,8 @@ class Fourmi
   end
 
 
+  private
+
   def nouvelle_direction(couleur)
     (direction + RULES[couleur][:offset_direction]) % 4
   end
@@ -37,8 +39,8 @@ class Fourmi
   end
 
   def tourne(direction)
-    self.colonne += DIRECTIONS[direction][:colonne_offset]
-    self.ligne += DIRECTIONS[direction][:ligne_offset]
+    self.colonne = (self.colonne + DIRECTIONS[direction][:colonne_offset]) % plateau.colonnes
+    self.ligne   = (self.ligne   + DIRECTIONS[direction][:ligne_offset])   % plateau.lignes
   end
 
 end
