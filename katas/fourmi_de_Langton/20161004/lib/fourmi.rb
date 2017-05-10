@@ -21,10 +21,9 @@ class Fourmi
   end
 
   def avance
-    case_plateau = plateau.case(self.ligne, self.colonne)
-    couleur = case_plateau.couleur
+    couleur = plateau.case(self.ligne, self.colonne)
+    plateau.colorie_case!(self.ligne, self.colonne, nouvelle_couleur(couleur))
     tourne(self.direction = nouvelle_direction(couleur))
-    case_plateau.couleur = nouvelle_couleur(couleur)
   end
 
 

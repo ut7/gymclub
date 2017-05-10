@@ -5,19 +5,14 @@ class Plateau
     @lignes = lignes
     @colonnes = colonnes
     
-    @cases = Array.new(lignes){Array.new(colonnes) {Case.new(:blanc)}}
+    @cases = Array.new(lignes){Array.new(colonnes) {:blanc}}
   end
 
   def case(ligne,colonne)
     @cases[ligne][colonne]
   end
 
-end
-
-class Case
-  attr_accessor :couleur, :objet
-
-  def initialize(couleur)
-    @couleur = couleur
+  def colorie_case!(ligne,colonne, couleur)
+    @cases[ligne][colonne] = couleur
   end
 end
