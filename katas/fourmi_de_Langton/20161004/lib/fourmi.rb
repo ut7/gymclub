@@ -8,30 +8,30 @@ class Fourmi
     { colonne_offset:  0, ligne_offset:  1 }  # bas
   ]
 
-  RULES = [ -1, 1 ]
-
-  def initialize(plateau, ligne, colonne)
-    self.plateau = plateau
-    self.ligne = ligne
-    self.colonne = colonne
-    self.direction = 1
+  def initialize(options)
+    self.plateau = options[:plateau]
+    self.ligne = options[:ligne] || plateau.centre[:ligne]
+    self.colonne = options[:colonne] || plateau.centre[:colonne]
+    self.direction = options[:direction] || 1
+    @rules = options[:rules] || [ -1, 1 ]
   end
 
   def avance
     couleur = plateau.case(self.ligne, self.colonne)
-    plateau.colorie_case!(self.ligne, self.colonne, nouvelle_couleur(couleur))
+    nouvelle_couleur = plateau.colorie_case!(self.ligne, self.colonne, nouvelle_couleur(couleur))
     tourne(self.direction = nouvelle_direction(couleur))
+    nouvelle_couleur
   end
 
 
   private
 
   def nouvelle_direction(couleur)
-    (direction + RULES[couleur]) % 4
+    (direction + @rules[couleur]) % 4
   end
 
   def nouvelle_couleur(couleur)
-    ( couleur + 1 ) % RULES.size
+    ( couleur + 1 ) % @rules.size
   end
 
   def tourne(direction)

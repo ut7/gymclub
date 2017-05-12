@@ -15,4 +15,8 @@ class Plateau
   def colorie_case!(ligne,colonne, couleur)
     @cases[ligne][colonne] = couleur
   end
+
+  def centre
+    { ligne: lignes / 2, colonne: colonnes / 2 }
+  end
 end

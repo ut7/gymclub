@@ -1,10 +1,12 @@
 require 'curses'
 
 class VuePlateauCurses
-  COULEURS = {
-    blanc: { id: 1, basic: ' ', advanced: Curses::COLOR_BLACK },
-    noir:  { id: 2, basic: 'x', advanced: Curses::COLOR_WHITE }
-  }
+  COULEURS = [
+    { basic: ' ', advanced: Curses::COLOR_BLACK },
+    { basic: 'x', advanced: Curses::COLOR_WHITE },
+    { basic: 'o', advanced: Curses::COLOR_RED },
+    { basic: 'i', advanced: Curses::COLOR_YELLOW }
+  ]
 
   def initialize(with_color=true)
     @with_color = with_color
@@ -12,8 +14,8 @@ class VuePlateauCurses
     if terminal_has_colors?
       Curses.start_color
       i=0
-      COULEURS.keys.each do |couleur|
-        Curses.init_pair(COULEURS[couleur][:id], Curses::COLOR_BLUE, COULEURS[couleur][:advanced])
+      COULEURS.each_with_index do |couleur, index|
+        Curses.init_pair(index, Curses::COLOR_BLUE, couleur[:advanced])
       end
     end
   end
@@ -41,7 +43,7 @@ class VuePlateauCurses
   end
 
   def colorie_case_advanced(couleur)
-    Curses.attrset(Curses.color_pair(COULEURS[couleur][:id]))
+    Curses.attrset(Curses.color_pair(couleur))
     Curses.addstr(' ')
   end
 

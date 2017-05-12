@@ -3,7 +3,7 @@ require 'plateau'
 
 describe Fourmi do
   let(:plateau) { Plateau.new(3,3) }
-  let(:fourmi) { Fourmi.new(plateau, 1,1) }
+  let(:fourmi) { Fourmi.new(plateau: plateau, ligne: 1, colonne: 1 ) }
 
   it "se pose sur plateau" do
     expect(fourmi.ligne).to eq(1)
@@ -45,7 +45,7 @@ describe Fourmi do
 
   it "avance depuis les bords du plateau sans crasher" do
     plateau.colorie_case!(2, 2, 1)
-    fourmi = Fourmi.new(plateau, 2, 2)
+    fourmi = Fourmi.new(plateau: plateau, ligne: 2, colonne: 2)
     fourmi.direction = 1
 
     fourmi.avance
