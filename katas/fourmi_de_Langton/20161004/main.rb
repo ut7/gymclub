@@ -2,7 +2,7 @@ require './lib/fourmi'
 require './lib/plateau'
 require './lib/vue_plateau_curses'
 
-plateau = Plateau.new(80,200)
+plateau = Plateau.new(80, 200)
 vue_plateau = VuePlateauCurses.new
 fourmi = Fourmi.new(plateau: plateau, rules: [1, -1, -1, 1])
 puts plateau.centre
@@ -14,4 +14,3 @@ end
 
 sleep 120
 vue_plateau.eteint
-

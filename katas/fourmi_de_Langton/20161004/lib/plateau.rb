@@ -4,15 +4,15 @@ class Plateau
   def initialize(lignes, colonnes)
     @lignes = lignes
     @colonnes = colonnes
-    
-    @cases = Array.new(lignes){Array.new(colonnes) {0}}
+
+    @cases = Array.new(lignes) { Array.new(colonnes) { 0 } }
   end
 
-  def case(ligne,colonne)
+  def case(ligne, colonne)
     @cases[ligne][colonne]
   end
 
-  def colorie_case!(ligne,colonne, couleur)
+  def colorie_case!(ligne, colonne, couleur)
     @cases[ligne][colonne] = couleur
   end
 

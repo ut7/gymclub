@@ -6,17 +6,18 @@ class VuePlateauCurses
     { basic: 'x', advanced: Curses::COLOR_WHITE },
     { basic: 'o', advanced: Curses::COLOR_RED },
     { basic: 'i', advanced: Curses::COLOR_YELLOW }
-  ]
+  ].freeze
 
-  def initialize(with_color=true)
+  def initialize(with_color = true)
     @with_color = with_color
     Curses.init_screen
-    if terminal_has_colors?
-      Curses.start_color
-      i=0
-      COULEURS.each_with_index do |couleur, index|
-        Curses.init_pair(index, Curses::COLOR_BLUE, couleur[:advanced])
-      end
+    initialize_color if terminal_has_colors?
+  end
+
+  def initialize_color
+    Curses.start_color
+    COULEURS.each_with_index do |couleur, index|
+      Curses.init_pair(index, Curses::COLOR_BLUE, couleur[:advanced])
     end
   end
 
