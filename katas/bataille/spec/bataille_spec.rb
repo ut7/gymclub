@@ -5,12 +5,8 @@ RSpec.describe Bataille do
   it "renvoie le jeu gagnant" do
     bob = Joueur.new(jeu: [10])
     alice = Joueur.new(jeu: [9])
-    expect(Bataille::result_war(bob, alice)).to eq(bob)
-  end
-
-  it "renvoie le jeu gagnant" do
-    bob = Joueur.new(jeu: [10])
-    alice = Joueur.new(jeu: [9])
-    expect(Bataille::result_war(alice, bob)).to eq(bob)
+    bataille = Bataille.new(bob, alice)
+    gagnant = bataille.joue
+    expect(gagnant).to eq(bob)
   end
 end
