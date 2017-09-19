@@ -1,19 +1,34 @@
-``%!adunit.dots a
-``%!adunit.dots b
+%!adunit.dots a
+%!adunit.dots b
 %!adunit.dots c
 %!adunit.dots d
-%!halfadder.dots h
+%!adunit.dots e
+%!adunit.dots f
+%!halfadder.dots m
+%!halfadder.dots n
+%!halfadder.dots o
 
-``  .-#1\
-``  .-#1c
+%$p
+%$q
+
+``  .-#0\
+``  .-#0a--p
 ``
-``  .-#2\
-``  .-#1a
-  
-  .-#0\
-  .-#0h--\
-      |  |
-      |  |
-  .-#0c  |
-         |
-  .-#0---d
+``  p-#0\
+``  .-#0b-&
+
+  .-*#0\
+    *#0m\
+    *#0a|
+    \#0-b-p
+
+  p-*#0\
+    *#1n\
+    *#1c|
+    \#0-d-q
+
+
+  q-*#1\
+    *#1o\
+    *#0e|
+    \#1-f
