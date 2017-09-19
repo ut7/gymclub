@@ -1,0 +1,19 @@
+``%!adunit.dots a
+``%!adunit.dots b
+%!adunit.dots c
+%!adunit.dots d
+%!halfadder.dots h
+
+``  .-#1\
+``  .-#1c
+``
+``  .-#2\
+``  .-#1a
+  
+  .-#0\
+  .-#0h--\
+      |  |
+      |  |
+  .-#0c  |
+         |
+  .-#0---d
